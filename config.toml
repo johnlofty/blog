@@ -1,0 +1,10 @@
+baseURL = "http://johnlofty.com/"
+languageCode = "zh-cn"
+title = "John Lofty"
+theme = "simple-style"
+publishDir = "docs"
+Copyright="&copy; 2020 johnlofty.com"
+
+[params]
+    description = "JohnLofty's Greate Site"
+    author = "johnlofty"

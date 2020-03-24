@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>John Lofty</title>
+    <link>http://johnlofty.com/</link>
+    <description>Recent content on John Lofty</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>&amp;copy; 2020 johnlofty.com</copyright>
+    
+	<atom:link href="http://johnlofty.com/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+  </channel>
+</rss>
