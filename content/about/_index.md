@@ -12,4 +12,5 @@ draft: flase
 
 博主是一个从事后端开发的程序员，主要记录开发相关内容。
 
-This host is an backend developer. And the blog mainly focus on software-related topics.  
+This blogger is a backend developer. 
+This blog mainly focus on software-related topics.  

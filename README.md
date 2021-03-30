@@ -1,2 +1,2 @@
 
-## Blog Project
+## blog project powered by hugo
