@@ -1,10 +1,40 @@
 baseURL = "http://johnlofty.com/"
 languageCode = "zh-cn"
-title = "John Lofty"
+title = "Think Code Make Loop"
 theme = "simple-style"
 publishDir = "docs"
-Copyright="&copy; 2020 johnlofty.com"
+Copyright="&copy; 2021 johnlofty.com"
+googleAnalytics = "UA-77660307-1"
 
 [params]
+    subtitle = "What I cannot create, I do not understand."
     description = "JohnLofty's Greate Site"
-    author = "johnlofty"
+    author = "John Lofty"
+
+[menu]
+
+  [[menu.main]]
+    identifier = "about"
+    name = "About Me"
+    pre = "<i class='fa fa-heart'></i>"
+    url = "/about/"
+    weight = -110
+
+  [[menu.main]]
+    name = "Categories"
+    post = "<span class='alert'>New!</span>"
+    pre = "<i class='fa fa-road'></i>"
+    url = "/categories/"
+    weight = -120
+  
+  [[menu.main]]
+    name = "ARTS"
+    post = "<span class='alert'>New!</span>"
+    pre = "<i class='fa fa-road'></i>"
+    url = "/categories/arts/"
+    weight = -115
+
+
+[taxonomies]
+  category = "categories"
+  tag = "tags"

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="author" content="John Lofty">
+<meta name="description" content="JohnLofty&#39;s Greate Site">
+<title>ARTS Week01 - Think Code Make Loop</title>
+<link rel="stylesheet" type="text/css" href="/css/main.css">
+<link rel="stylesheet" type="text/css" href="/css/comments.css">
+</head>
+<body>
+<header>
+  <div>
+    <h1><a href="http://johnlofty.com/">Think Code Make Loop</a></h1><h2><a href="http://johnlofty.com/">What I cannot create, I do not understand.</a></h2>
+  </div>
+  <nav><a href="/categories/">Categories</a><a href="/categories/arts/">ARTS</a><a href="/about/">About Me</a></nav>
+</header>
+<main>
+  <article>
+    <div class="title">
+  <h1>ARTS Week01</h1>
+  </div>
+<div class="meta">
+  <div>2020-05-23 11:43</div>
+  </div>
+<div class="content">
+  
+
+<h3 id="algorithm">Algorithm</h3>
+
+<blockquote>
+<p>Given an array of integers, return indices of the two numbers such that they add up to a specific target.</p>
+
+<p>You may assume that each input would have exactly one solution, and you may not use the same element twice.</p>
+
+<p>Example:</p>
+
+<p>Given nums = [2, 7, 11, 15], target = 9,</p>
+
+<p>Bacause nums[0] + num[1] = 2 + 7 =.9</p>
+
+<p>return [0, 1].</p>
+</blockquote>
+
+<pre><code class="language-python">class Solution:
+    def twoSum(self, nums: List[int], target: int) -&gt; List[int]:
+        key_map = {}
+        for idx, num in enumerate(nums):
+            if (target - num) in key_map:
+                return [key_map[target-num], idx]
+             key_map[num] = idx
+            
+        return [-1, -1]
+</code></pre>
+
+<h3 id="review">Review</h3>
+
+<p>learn about how Dict is implemented in Python.</p>
+
+<p>Keynotes:</p>
+
+<p>1, python use hash tables behind Dict.</p>
+
+<p>2, Use Open addressing as method of collision resolution. j =( (5 * j) + 1 + perturb) mod (2** i); perturb &gt;&gt;= PERTURB_SHIFT;</p>
+
+<p>3, AddItem will trigger resize when active + dummy is greater than <sup>2</sup>&frasl;<sub>3</sub></p>
+
+<h3 id="tips">Tips</h3>
+
+<p>Don&rsquo;t use <code>keys</code> command in redis, unless you know what you are doning.</p>
+
+<p><code>keys</code> command will <strong>block</strong> redis until it finish searching all the keys.</p>
+
+<p><code>keys</code> will be slower and  slower as keys&rsquo; number grows. which is pretty unpredictable. Even the smallest database can grow really large.</p>
+
+<p>If you must to, use <code>scan</code> instead, scan command will only return a few keys and a cursor, you can continue to iterate all keys.</p>
+
+<h3 id="share">Share</h3>
+
+<p>an good article about <strong>Dict</strong> implementation in Python.</p>
+
+<p><a href="https://www.laurentluce.com/posts/python-dictionary-implementation/">python-dictionary-implementation</a></p>
+</div>
+
+<div id="comments">
+  
+    <script>
+    var id =  1 ;
+
+    if (id)
+    {
+      let url = "https://github.com/johnlofty/blog/issues/".concat(id);
+      let api_url = "https://api.github.com/repos/johnlofty/blog/issues/".concat(id, "/comments");
+      
+      var commentsDiv = document.getElementById("comments");
+  
+      let xhr = new XMLHttpRequest();
+      xhr.responseType = "json";
+      xhr.open("GET", api_url);
+      xhr.setRequestHeader("Accept", "application/vnd.github.v3.html+json");
+      xhr.send();
+  
+      xhr.onload = function()
+      {
+        if (xhr.status != 200)
+        {
+          let errorText = document.createElement("p");
+          errorText.innerHTML = "<i>Comments for this post yet are not opened yet (or you have GitHub scripts disabled).</i>";
+          commentsDiv.appendChild(errorText);
+        }
+        else
+        {
+          let comments = xhr.response;
+  
+          let mainHeader = document.createElement("h2");
+          mainHeader.innerHTML = "Comments: ".concat(comments.length);
+          commentsDiv.appendChild(mainHeader);
+  
+          let issueLink = document.createElement("p");
+          issueLink.innerHTML = "<i>You can leave a comment using this <a href='".concat(url, "'>GitHub issue</a>.</i>");
+          commentsDiv.appendChild(issueLink);
+          
+          comments.forEach(function(comment)
+          {
+              let commentContent = document.createElement("div");
+              commentContent.setAttribute('class', 'gh-comment')
+              commentContent.innerHTML = "".concat(
+                  "<div class='gh-header'>",
+                    "<img src='", comment.user.avatar_url, "' />",
+                    "<div style='margin:auto 0;'>",
+                      "<b><a class='gh-username' href='", comment.user.html_url, "'>", comment.user.login, "</a></b>",
+                      " commented at <em>", new Date(comment.created_at), "</em>",
+                    "</div>",
+                  "</div>",
+                  "<div class='gh-body'>",
+                    comment.body_html,
+                  "</div>"
+              );
+              commentsDiv.appendChild(commentContent);
+          });
+        }
+      };
+  
+      xhr.onerror = function()
+      {
+        let errorText = document.createElement("p");
+        errorText.innerHTML = "<i>Some error loading comments.</i>";
+        commentsDiv.appendChild(errorText);
+      };
+    }
+  </script>
+  
+</div>
+
+  </article>
+</main>
+<footer>
+  <div>
+    <div>&copy; 2021 johnlofty.com</div>
+  </div>
+</footer>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-77660307-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+</body>
+</html>

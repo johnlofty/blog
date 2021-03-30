@@ -1,9 +1,8 @@
 ---
-title: "My First Post"
+title: "博客装修完重新开张了。"
 date: 2020-03-23T22:20:18+08:00
-draft: true
 ---
 
-this is the first post
+需要有个地方记录自己的想法。
 
-thisdfalsdfjkajsdf
+希望自己能坚持写下去。

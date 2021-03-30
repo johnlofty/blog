@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Think Code Make Loop</title>
-    <link>http://johnlofty.com/</link>
-    <description>Recent content on Think Code Make Loop</description>
+    <title>Posts on Think Code Make Loop</title>
+    <link>http://johnlofty.com/posts/</link>
+    <description>Recent content in Posts on Think Code Make Loop</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <copyright>&amp;copy; 2021 johnlofty.com</copyright>
     <lastBuildDate>Mon, 06 Jul 2020 22:21:48 +0800</lastBuildDate>
     
-	<atom:link href="http://johnlofty.com/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://johnlofty.com/posts/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>

@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="author" content="John Lofty">
+<meta name="description" content="JohnLofty&#39;s Greate Site">
+<title>ARTS Week02 - Think Code Make Loop</title>
+<link rel="stylesheet" type="text/css" href="/css/main.css">
+<link rel="stylesheet" type="text/css" href="/css/comments.css">
+</head>
+<body>
+<header>
+  <div>
+    <h1><a href="http://johnlofty.com/">Think Code Make Loop</a></h1><h2><a href="http://johnlofty.com/">What I cannot create, I do not understand.</a></h2>
+  </div>
+  <nav><a href="/categories/">Categories</a><a href="/categories/arts/">ARTS</a><a href="/about/">About Me</a></nav>
+</header>
+<main>
+  <article>
+    <div class="title">
+  <h1>ARTS Week02</h1>
+  </div>
+<div class="meta">
+  <div>2020-07-06 22:21</div>
+  </div>
+<div class="content">
+  
+
+<h3 id="algorithm">Algorithm</h3>
+
+<h4 id="第一题">第一题</h4>
+
+<p>实现指数运算，pow(x, n) 计算出x的n次方。</p>
+
+<blockquote>
+<p>Implement <a href="http://www.cplusplus.com/reference/valarray/pow/">pow(<em>x</em>, <em>n</em>)</a>, which calculates <em>x</em> raised to the power <em>n</em> (x^n).</p>
+
+<p>Note:</p>
+
+<ul>
+<li>-100.0 &lt; x &lt; 100.0</li>
+<li>n is a 32-bit signed integer, within the range [-2^31, 2^31 - 1]</li>
+</ul>
+</blockquote>
+
+<p>已知指数运算的几个特性：</p>
+
+<p>1， 任意数的0次方为1；</p>
+
+<p>2，1的n次方依然为1；</p>
+
+<p>3，x为0时，若n为0，值为1；若n不为0，则值为0；</p>
+
+<p>4，当n &lt; 0 时， x^n = 1 / x^-n；</p>
+
+<p><strong>已知关于指数运算的知识点</strong></p>
+
+<ul>
+<li>0的任意次方为0</li>
+<li>1的任意次方为1</li>
+<li>任意数的0次方1</li>
+<li>如果n &lt; 0, pow(x, n).= 1/pow(x, -n)</li>
+</ul>
+
+<p>解法1，暴力破解</p>
+
+<p>直接遍历n次即可得到，注意处理好边界条件。</p>
+
+<pre><code class="language-go">func myPow(x float64, n int) float64 {
+    if x == 0.0{
+        return 0.0
+    }
+    if x == 1.0{
+        return 1.0
+    }
+    if (n == 0){
+        return 1.0
+    }
+	  iter := n
+  	if n &lt; 0{
+    	iter = -n
+  	}
+    val := x
+    for i := 1; i &lt; iter; i++{
+      val *= x
+    }
+    if n &gt; 0{
+        return val
+    }else{
+        return  1/ val
+    }
+}
+</code></pre>
+
+<p>搞定提交。</p>
+
+<p><img src="/arts/0050-pow-1.png" alt="暴力法提交结果" /></p>
+
+<p>不出所料，暴力法不会通过。</p>
+
+<p>但是我们从测试用例可以看到，n非常大，我们改如何改进呢？</p>
+
+<p>由于n很大，想想算法里经常会提到的<strong>divide and conquer</strong>，我们很容易想到，可以将n分成2份</p>
+
+<p>如果n是偶数pow(x, n) = pow(x, n/2) * pow(x, n/2)</p>
+
+<p>如果n是奇数pow(x, n) = pow(x, n/2) * pow(x, n/2) * x</p>
+
+<p>可以看到pow(x, n/2)被计算了两次，如果我们可以把计算过的结果保存下来，则可以加少计算量，减少执行时间。</p>
+
+<p>那一直分到多少才算结束呢？</p>
+
+<p>我们可以举例试试，</p>
+
+<p>n = 1, n/2为0，任意数的0次方为1.0，pow(x, 1) = pow(x, 0) * pow(x, 0) * x = 1.0 * 1.0 * x</p>
+
+<p>n = 2, n/2 为1，任意数的1次方为它自己，pow(x, 2) = pow(x, 1) * pow(x, 1) = x * x</p>
+
+<p>n = 3, n/2为1，pow(x, 3) = pow(x, 1) * pow(x, 1) * x= x * x * x</p>
+
+<p>n = 4 .n/2为2，pow(x, 4) = pow(x, 2) * pow(x, 2)</p>
+
+<p>由此我们可以看到我们已经推算了所有情况。</p>
+
+<p>递归的出口条件为n = 0, n = 1，其他情况均可以分解到这两种基本情况。</p>
+
+<p>解法2</p>
+
+<pre><code class="language-go">func myPow(x float64, n int) float64 {
+    if x == 0.0{
+        return 0.0
+    }
+    if x == 1.0{
+        return 1.0
+    }
+    if (n == 0){
+        return 1.0
+    }
+		iter := n
+  	if n &lt; 0{
+    	iter = -n
+  	}
+    m := make(map[int]float64)
+    val := inner(x, iter, m)
+    if n &gt; 0{
+        return val
+    }else{
+        return  1/ val
+    }
+}
+func inner(x float64, n int, m map[int]float64) float64{
+    if n == 0{
+        return 1.0
+    }
+    if n == 1{
+        return x
+    }
+    val, ok := m[n]
+    if ok{
+        return val
+    }else{
+        if n % 2 == 0{
+            val = inner(x, n/2, m) * inner(x, n/2, m)
+        } else{
+            val = inner(x, n/2, m) * inner(x, n/2, m) * x
+        }
+        m[n] = val
+        return val
+    }
+}
+</code></pre>
+
+<p><img src="/arts/0050-pow-2.png" alt="解法2结果" /></p>
+
+<h2 id="review">Review</h2>
+
+<p><a href="https://betterprogramming.pub/3-pitfalls-in-golang-i-wish-i-knew-3f208a8402a7">3 pitfalls in golang I wish to knew</a></p>
+
+<p>Summarize:</p>
+
+<ul>
+<li>Closure in Go hold a reference to variable</li>
+<li><code>:=</code> in a if scope will be new variables</li>
+<li>Unlimited Gocoroutines can easily exceed memory limit in small momery machine, Use Work Pool</li>
+</ul>
+
+<h2 id="tips">Tips:</h2>
+
+<p>Why do we need ping/pong heartbeat in WebSocket when TCP has keepalive hearbeat?</p>
+
+<p><strong>TCP&rsquo;s heartbeat only make sure the socket is alive, not usable</strong></p>
+
+<p>for example: TCP heartbeat make sure the pipe is unblocked, but it doesn&rsquo;t care if the water plant can supply water normally.</p>
+
+<p><a href="https://stackoverflow.com/questions/865987/do-i-need-to-heartbeat-to-keep-a-tcp-connection-open">Do I need to heatbeat to keep a TCP connection open</a></p>
+
+<h2 id="share">Share:</h2>
+
+<p><a href="https://medium.com/aigent/meet-nanoq-high-performance-brokerless-pub-sub-for-streaming-real-time-data-with-golang-6630d3067f4e">Meet nanoQ — high-performance brokerless Pub/Sub for streaming real-time data with Golang</a></p>
+
+<p>The author make serveral design decisions to make nanoQ simple to implement and fast.</p>
+
+<ul>
+<li><p>when the sub is too slow, just drop the package. There&rsquo;s no need to use buffer.</p></li>
+
+<li><p>Choose TCP over UDP for its congestion control built in and more stable performance.</p></li>
+
+<li><p>Simple but powerful data protocol: Wire Protocol</p>
+
+<pre><code class="language-c">+--...---+---------...
+|&lt;length&gt;| payload ...
++--...---+---------...
+</code></pre></li>
+</ul>
+
+<blockquote>
+<p>The <em><length></em> is <a href="https://developers.google.com/protocol-buffers/docs/encoding">Varint</a> 1–5 octets depending on the payload size.</p>
+
+<p>Varints are a method of serializing integers using one or more bytes. Smaller numbers take a smaller number of bytes.</p>
+
+<p>Each byte in a varint, except the last byte, has the <em>most significant bit</em> (msb) set — this indicates that there are further bytes to come. The lower 7 bits of each byte are used to store the two’s complement representation of the number in groups of 7 bits, least significant group first.</p>
+</blockquote>
+
+<ul>
+<li>use circular buffer instead of channel as queue, to avoid high gc rate.</li>
+</ul>
+</div>
+
+<div id="comments">
+  
+    <script>
+    var id =  2 ;
+
+    if (id)
+    {
+      let url = "https://github.com/johnlofty/blog/issues/".concat(id);
+      let api_url = "https://api.github.com/repos/johnlofty/blog/issues/".concat(id, "/comments");
+      
+      var commentsDiv = document.getElementById("comments");
+  
+      let xhr = new XMLHttpRequest();
+      xhr.responseType = "json";
+      xhr.open("GET", api_url);
+      xhr.setRequestHeader("Accept", "application/vnd.github.v3.html+json");
+      xhr.send();
+  
+      xhr.onload = function()
+      {
+        if (xhr.status != 200)
+        {
+          let errorText = document.createElement("p");
+          errorText.innerHTML = "<i>Comments for this post yet are not opened yet (or you have GitHub scripts disabled).</i>";
+          commentsDiv.appendChild(errorText);
+        }
+        else
+        {
+          let comments = xhr.response;
+  
+          let mainHeader = document.createElement("h2");
+          mainHeader.innerHTML = "Comments: ".concat(comments.length);
+          commentsDiv.appendChild(mainHeader);
+  
+          let issueLink = document.createElement("p");
+          issueLink.innerHTML = "<i>You can leave a comment using this <a href='".concat(url, "'>GitHub issue</a>.</i>");
+          commentsDiv.appendChild(issueLink);
+          
+          comments.forEach(function(comment)
+          {
+              let commentContent = document.createElement("div");
+              commentContent.setAttribute('class', 'gh-comment')
+              commentContent.innerHTML = "".concat(
+                  "<div class='gh-header'>",
+                    "<img src='", comment.user.avatar_url, "' />",
+                    "<div style='margin:auto 0;'>",
+                      "<b><a class='gh-username' href='", comment.user.html_url, "'>", comment.user.login, "</a></b>",
+                      " commented at <em>", new Date(comment.created_at), "</em>",
+                    "</div>",
+                  "</div>",
+                  "<div class='gh-body'>",
+                    comment.body_html,
+                  "</div>"
+              );
+              commentsDiv.appendChild(commentContent);
+          });
+        }
+      };
+  
+      xhr.onerror = function()
+      {
+        let errorText = document.createElement("p");
+        errorText.innerHTML = "<i>Some error loading comments.</i>";
+        commentsDiv.appendChild(errorText);
+      };
+    }
+  </script>
+  
+</div>
+
+  </article>
+</main>
+<footer>
+  <div>
+    <div>&copy; 2021 johnlofty.com</div>
+  </div>
+</footer>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-77660307-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+</body>
+</html>
