@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="author" content="John Lofty">
+<meta name="description" content="JohnLofty&#39;s Greate Site">
+<title>ARTS Week03 - Think Code Make Loop</title>
+<link rel="stylesheet" type="text/css" href="/css/main.css">
+<link rel="stylesheet" type="text/css" href="/css/comments.css">
+</head>
+<body>
+<header>
+  <div>
+    <h1><a href="http://johnlofty.com/">Think Code Make Loop</a></h1><h2><a href="http://johnlofty.com/">What I cannot create, I do not understand.</a></h2>
+  </div>
+  <nav><a href="/categories/">Categories</a><a href="/categories/arts/">ARTS</a><a href="/about/">About Me</a></nav>
+</header>
+<main>
+  <article>
+    <div class="title">
+  <h1>ARTS Week03</h1>
+  </div>
+<div class="meta">
+  <div>2021-04-11 11:59</div>
+  </div>
+<div class="content">
+  
+
+<h3 id="algorithm">Algorithm</h3>
+
+<h4 id="实现时间复杂度为o-1-的lru">实现时间复杂度为O(1)的LRU</h4>
+
+<p>LRU为Least Recently Used的缩写，意思是最近最少使用，常用来作为一种热数据淘汰机制，使用很广泛。</p>
+
+<p>涉及到的操作有：</p>
+
+<ol>
+<li>新的数据放入队尾</li>
+<li>队列满时，从队头淘汰数据</li>
+<li>放入已经在队列里的数据时，从原先位置取出，放入队尾。</li>
+</ol>
+
+<p>本题的重点是要在O(1)的时间复杂度里完成所有操作，什么数据结构可以在O(1)的时间复杂度里完成上述操作呢？</p>
+
+<p>答案是Double Linked List</p>
+
+<p>选择好合适的数据结构后，剩下的就很简单了。</p>
+
+<pre><code class="language-python">class Node:
+    def __init__(self, k, v):
+        self.k = k
+        self.v = v
+        self.next = None
+        self.prev = None
+
+class LRUCache:
+
+    def __init__(self, capacity: int):
+        self.cap = capacity
+        self.map = {}
+        self.root = root = Node(None, None)
+        root.prev = root.next = root
+
+    def get(self, key: int) -&gt; int:
+        node = self.map.get(key)
+        if not node:
+            return -1
+        else:
+            prev_node = node.prev
+            next_node = node.next
+            next_node.prev = prev_node
+            prev_node.next = next_node
+
+            node.next = self.root
+            node.prev = tail_node = self.root.prev
+            self.root.prev = tail_node.next = node
+            return node.v
+        
+
+    def put(self, key: int, value: int) -&gt; None:
+        node = self.map.get(key)
+        if not node:
+            node = Node(key, value)
+            node.next = self.root
+            node.prev = tail_node = self.root.prev
+            self.root.prev = tail_node.next = node
+            self.map[key] = node
+            if len(self.map) &gt; self.cap:
+                self.pop()
+        else:
+            prev_node = node.prev
+            next_node = node.next
+            next_node.prev = prev_node
+            prev_node.next = next_node
+
+            node.next = self.root
+            node.prev = tail_node = self.root.prev
+            self.root.prev = tail_node.next = node
+            node.v = value
+
+    def pop(self):
+        first_node = self.root.next
+        next_node = first_node.next
+        next_node.prev = self.root
+        self.root.next = next_node
+        self.map.pop(first_node.k)
+
+</code></pre>
+
+<p>需要注意的点是，在操作链表时，别让链表断开。</p>
+
+<p>root节点在初始化时，可以让root节点的next, prev都指向自己，方便后面处理。</p>
+
+<h3 id="review">Review</h3>
+
+<p>Golang Builder Pattern</p>
+
+<p>通过使用不同阶段的Methods，实现对结构体数据的初始化。</p>
+
+<p><a href="https://devcharmander.medium.com/design-patterns-in-golang-the-builder-dac468a71194">Go Builder Pattern</a></p>
+
+<h3 id="tips">Tips</h3>
+
+<h4 id="如何减少docker-image的体积">如何减少docker image的体积</h4>
+
+<p>利用多阶段编译(multi-stage builds，可以有效缩小Docker生成image的大小.
+multi-stage builds将编译环境与运行环境分开。
+如果运行环境选择alpine，生成的镜像体积大约80MB左右。</p>
+
+<pre><code class="language-dockefile">FROM golang:1.16
+WORKDIR /go/src/github.com/alexellis/href-counter/
+RUN go get -d -v golang.org/x/net/html  
+COPY app.go .
+RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o app .
+
+FROM alpine:latest  
+RUN apk --no-cache add ca-certificates
+WORKDIR /root/
+COPY --from=0 /go/src/github.com/alexellis/href-counter/app .
+CMD [&quot;./app&quot;]  
+</code></pre>
+
+<h4 id="reference">Reference:</h4>
+
+<p><a href="https://docs.docker.com/develop/develop-images/multistage-build/">multistage-build</a></p>
+
+<h3 id="share">Share</h3>
+
+<p>测试某个主机的某个端口是否畅通的时候，可以很方便使用nc命令做到。</p>
+
+<pre><code class="language-bash">$ nc -z -v -w 3 baidu.com 80
+Connection to baidu.com 80 port [tcp/http] succeeded!
+</code></pre>
+
+<p>-z 用来扫描端口，并不会发送任何数据</p>
+
+<p>-x 用来使用代理</p>
+</div>
+
+<div id="comments">
+  
+    <script>
+    var id =  3 ;
+
+    if (id)
+    {
+      let url = "https://github.com/johnlofty/blog/issues/".concat(id);
+      let api_url = "https://api.github.com/repos/johnlofty/blog/issues/".concat(id, "/comments");
+      
+      var commentsDiv = document.getElementById("comments");
+  
+      let xhr = new XMLHttpRequest();
+      xhr.responseType = "json";
+      xhr.open("GET", api_url);
+      xhr.setRequestHeader("Accept", "application/vnd.github.v3.html+json");
+      xhr.send();
+  
+      xhr.onload = function()
+      {
+        if (xhr.status != 200)
+        {
+          let errorText = document.createElement("p");
+          errorText.innerHTML = "<i>Comments for this post yet are not opened yet (or you have GitHub scripts disabled).</i>";
+          commentsDiv.appendChild(errorText);
+        }
+        else
+        {
+          let comments = xhr.response;
+  
+          let mainHeader = document.createElement("h2");
+          mainHeader.innerHTML = "Comments: ".concat(comments.length);
+          commentsDiv.appendChild(mainHeader);
+  
+          let issueLink = document.createElement("p");
+          issueLink.innerHTML = "<i>You can leave a comment using this <a href='".concat(url, "'>GitHub issue</a>.</i>");
+          commentsDiv.appendChild(issueLink);
+          
+          comments.forEach(function(comment)
+          {
+              let commentContent = document.createElement("div");
+              commentContent.setAttribute('class', 'gh-comment')
+              commentContent.innerHTML = "".concat(
+                  "<div class='gh-header'>",
+                    "<img src='", comment.user.avatar_url, "' />",
+                    "<div style='margin:auto 0;'>",
+                      "<b><a class='gh-username' href='", comment.user.html_url, "'>", comment.user.login, "</a></b>",
+                      " commented at <em>", new Date(comment.created_at), "</em>",
+                    "</div>",
+                  "</div>",
+                  "<div class='gh-body'>",
+                    comment.body_html,
+                  "</div>"
+              );
+              commentsDiv.appendChild(commentContent);
+          });
+        }
+      };
+  
+      xhr.onerror = function()
+      {
+        let errorText = document.createElement("p");
+        errorText.innerHTML = "<i>Some error loading comments.</i>";
+        commentsDiv.appendChild(errorText);
+      };
+    }
+  </script>
+  
+</div>
+
+  </article>
+</main>
+<footer>
+  <div>
+    <div>&copy; 2021 johnlofty.com</div>
+  </div>
+</footer>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-77660307-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+</body>
+</html>
