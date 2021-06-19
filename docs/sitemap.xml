@@ -3,22 +3,27 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>http://johnlofty.com/posts/</loc>
+    <lastmod>2021-05-15T11:21:26+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://johnlofty.com/</loc>
+    <lastmod>2021-05-15T11:21:26+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://johnlofty.com/posts/windows-dev-environments/</loc>
+    <lastmod>2021-05-15T11:21:26+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://johnlofty.com/posts/arts-week03/</loc>
     <lastmod>2021-04-11T11:59:40+08:00</lastmod>
   </url>
   
   <url>
     <loc>http://johnlofty.com/categories/</loc>
-    <lastmod>2021-04-11T11:59:40+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://johnlofty.com/posts/</loc>
-    <lastmod>2021-04-11T11:59:40+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://johnlofty.com/</loc>
     <lastmod>2021-04-11T11:59:40+08:00</lastmod>
   </url>
   
