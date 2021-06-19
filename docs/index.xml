@@ -13,15 +13,14 @@
     
     
     <item>
-      <title>Windows Dev Environments</title>
+      <title>Windows10 开发环境搭建</title>
       <link>http://johnlofty.com/posts/windows-dev-environments/</link>
       <pubDate>Sat, 15 May 2021 11:21:26 +0800</pubDate>
       
       <guid>http://johnlofty.com/posts/windows-dev-environments/</guid>
-      <description>Windows10 开发环境搭建 最近因为工作需要开始在Windows10的PC上进行开发工作，但用惯了MacOS的zsh，在Windows下十分不习惯。于是便开始折腾。
-经过一段时间的折腾，从最开始的不适应，慢慢已经逐渐比较顺手了。总结一下我是如何setup windows下面的开发环境的。
-命令行环境 ####WSL2 + Ubuntu
-因为Windows的命令行实在是比较弱，而且命令都不太习惯，于是果断放弃，转投Linux环境。之前就看到Windows Terminal确实漂亮，于是打算试一试WSL2。
+      <description>最近因为工作需要开始在Windows10的PC上进行开发工作，但用惯了MacOS的zsh，在Windows下十分不习惯。于是便开始折腾。
+经过一段时间的折腾，从最开始的不适应，慢慢已经逐渐比较顺手了。总结一下我是如何setup windows下面的开发环境。
+命令行环境 WSL2 + Ubuntu 因为Windows的命令行实在是比较弱，而且命令都不太习惯，于是果断放弃，转投Linux环境。之前就看到Windows Terminal确实漂亮，于是打算试一试WSL2。
  安装WSL2之前需要完成一些配置，参考官方文档这里。 之后再安装对应的发行版，如Ubuntu20.04。 安装Windows Terminal。  安装过程本来很顺利，而且，不过据官方文档说，IO速度会比较慢。
 但用了一段时间后发现一个比较蛋疼的问题，WSL2的实例是跑在一个NAT子网里，WSL2可以通过/etc/resolve.conf拿到host主机的IP，可以直接访问host主机。但反过来就比较麻烦，目前WSL2还没有能很好的解决这个问题，只能手动去配置转发规则，
 总结一下wsl2的优缺点:
