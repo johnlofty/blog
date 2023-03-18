@@ -69,7 +69,7 @@ func myPow(x float64, n int) float64 {
 
 搞定提交。
 
-![暴力法提交结果](/arts/0050-pow-1.png)
+![暴力法提交结果](arts/0050-pow-1.png)
 
 不出所料，暴力法不会通过。
 

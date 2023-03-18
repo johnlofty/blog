@@ -6,7 +6,161 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <copyright>&amp;copy; 2023 johnlofty.com</copyright>
-    <lastBuildDate>Sat, 15 May 2021 11:21:26 +0800</lastBuildDate><atom:link href="http://johnlofty.com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 18 Mar 2023 11:52:57 +0800</lastBuildDate><atom:link href="http://johnlofty.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+    <title>Rescue My Macbook Pro 💻</title>
+    <link>http://johnlofty.com/posts/rescue-macbook-pro/</link>
+    <pubDate>Sat, 18 Mar 2023 11:52:57 +0800</pubDate>
+    
+    <guid>http://johnlofty.com/posts/rescue-macbook-pro/</guid>
+    <description>
+        &lt;h2 id=&#34;background&#34;&gt;
+    &lt;a href=&#34;#background&#34; class=&#34;anchor&#34;&gt;
+        &lt;svg class=&#34;icon&#34; aria-hidden=&#34;true&#34; focusable=&#34;false&#34; height=&#34;16&#34; version=&#34;1.1&#34; viewBox=&#34;0 0 16 16&#34; width=&#34;16&#34;&gt;
+            &lt;path fill-rule=&#34;evenodd&#34;
+                d=&#34;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&#34;&gt;
+            &lt;/path&gt;
+        &lt;/svg&gt;
+    &lt;/a&gt;
+    Background
+&lt;/h2&gt;
+&lt;p&gt;I accidentally spilled a WHOLE GLASS of WATER on my MacBookPro about two month ago. Even though I immediately shut it down, and left it on the table to dry out for about 3 days. I&amp;rsquo;m pretty sure there was still a lot of water inside. So I had to take it to a private repair shop to fix it.&lt;/p&gt;
+&lt;h2 id=&#34;why-didnt-i-take-it-to-the-apple-store&#34;&gt;
+    &lt;a href=&#34;#why-didnt-i-take-it-to-the-apple-store&#34; class=&#34;anchor&#34;&gt;
+        &lt;svg class=&#34;icon&#34; aria-hidden=&#34;true&#34; focusable=&#34;false&#34; height=&#34;16&#34; version=&#34;1.1&#34; viewBox=&#34;0 0 16 16&#34; width=&#34;16&#34;&gt;
+            &lt;path fill-rule=&#34;evenodd&#34;
+                d=&#34;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&#34;&gt;
+            &lt;/path&gt;
+        &lt;/svg&gt;
+    &lt;/a&gt;
+    Why didn&amp;rsquo;t I take it to the Apple Store?
+&lt;/h2&gt;
+&lt;p&gt;Because it cost me a fortune to let Apple repair it. A local Apple authorized repair shop told me the total cost is as high as 8000 CNY (about 1161$), as they would need to replace the entire motherboard and keyboard. Apparently this price is not even worth it.&lt;/p&gt;
+&lt;p&gt;At last the private repair shop took me 1300 CNY(188$) and nearly one month to fix it but not the touchID module. And they update my Mac from Monterey(12) to Ventura(13) to troubleshoot software issues.&lt;/p&gt;
+&lt;p&gt;You know the giant leap between macOS 12 and macOS 13, especially the System Preference, which is totally different. I can&amp;rsquo;t get used to it. I often found myself lost in System Preference menus, most of the time I need to Google where the settings are.&lt;/p&gt;
+&lt;h2 id=&#34;the-anonying-bug-on-macos-ventura---login-items-added&#34;&gt;
+    &lt;a href=&#34;#the-anonying-bug-on-macos-ventura---login-items-added&#34; class=&#34;anchor&#34;&gt;
+        &lt;svg class=&#34;icon&#34; aria-hidden=&#34;true&#34; focusable=&#34;false&#34; height=&#34;16&#34; version=&#34;1.1&#34; viewBox=&#34;0 0 16 16&#34; width=&#34;16&#34;&gt;
+            &lt;path fill-rule=&#34;evenodd&#34;
+                d=&#34;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&#34;&gt;
+            &lt;/path&gt;
+        &lt;/svg&gt;
+    &lt;/a&gt;
+    The anonying bug on macOS Ventura - &amp;ldquo;Login items added&amp;rdquo;
+&lt;/h2&gt;
+&lt;p&gt;Here&amp;rsquo;s an image of &amp;ldquo;Login items added&amp;rdquo; bug.&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; 
+    src=&#34;http://johnlofty.com/rescue_mac/login-item.jpeg&#34; 
+    alt=&#34;login-item-bug&#34; 
+     
+    width=800 
+    height=&#34;450&#34;  /&gt;&lt;/p&gt;
+&lt;p&gt;Usually this notification shows at the first time you install an app, or when you login.&lt;/p&gt;
+&lt;p&gt;But in my case, &lt;strong&gt;EVERY TIME&lt;/strong&gt; I click into the &lt;strong&gt;Login items&lt;/strong&gt; in System settings,  macOS pops up new &amp;ldquo;Login items added&amp;rdquo; notification in a row. yeah &lt;strong&gt;EVERY TIME&lt;/strong&gt;! Good Job Apple!&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; 
+    src=&#34;http://johnlofty.com/rescue_mac/login-item-2.jpg&#34; 
+    alt=&#34;login-item-added&#34; 
+     
+    width=568 
+    height=&#34;529&#34;  /&gt;
+&lt;a href=&#34;https://twitter.com/luciascarlet/status/1590017535910760450&#34;&gt;check this on twitter&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;You can read more about this bug.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.macrumors.com/2023/02/02/macos-background-items-added-notification-bug/&#34;&gt;https://www.macrumors.com/2023/02/02/macos-background-items-added-notification-bug&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://iboysoft.com/news/where-are-login-items-macos-ventura.html&#34;&gt;https://iboysoft.com/news/where-are-login-items-macos-ventura.html&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This bug tortures me everyday. Even after I upgrade macOS to latest 13.2.1, it&amp;rsquo;s still there.&lt;/p&gt;
+&lt;p&gt;Finally, at one late night I decided to downgrade to Monterey.&lt;/p&gt;
+&lt;h2 id=&#34;downgrade-from-ventura-to-monterey&#34;&gt;
+    &lt;a href=&#34;#downgrade-from-ventura-to-monterey&#34; class=&#34;anchor&#34;&gt;
+        &lt;svg class=&#34;icon&#34; aria-hidden=&#34;true&#34; focusable=&#34;false&#34; height=&#34;16&#34; version=&#34;1.1&#34; viewBox=&#34;0 0 16 16&#34; width=&#34;16&#34;&gt;
+            &lt;path fill-rule=&#34;evenodd&#34;
+                d=&#34;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&#34;&gt;
+            &lt;/path&gt;
+        &lt;/svg&gt;
+    &lt;/a&gt;
+    Downgrade from Ventura to Monterey
+&lt;/h2&gt;
+&lt;p&gt;I checked several methods to downgrade macOS. I decided to make a bootable installer.&lt;/p&gt;
+&lt;p&gt;I followed the instructions.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;erase my USB drive ✅&lt;/li&gt;
+&lt;li&gt;download Monterey from App Store ✅&lt;/li&gt;
+&lt;li&gt;make it bootable using commands ✅&lt;/li&gt;
+&lt;li&gt;restart Mac while holding option key ✅&lt;/li&gt;
+&lt;li&gt;erase internal drive ✅&lt;/li&gt;
+&lt;li&gt;boot from USB ❌&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;When I chose boot from USB drive, my Mac says it need to download something from the Internet. I gave it my WIFI password, then after download for about 10 minutes, It showed some error code like &lt;code&gt;-2100f&lt;/code&gt; or &lt;code&gt;-1008f&lt;/code&gt;. No matter how many times I tried, It always fail.&lt;/p&gt;
+&lt;p&gt;After Google around for some minutes, I realize I made a mistake, I forgot to close &lt;em&gt;Find My&lt;/em&gt; service, and I didn&amp;rsquo;t logout my iCloud account.
+However, even I erased Mac from &lt;em&gt;Find My&lt;/em&gt; on iPhone, Mac still refused to boot from USB. And because I already erase the internal drive, I can&amp;rsquo;t boot from old system in Mac.&lt;/p&gt;
+&lt;p&gt;My Mac is bricked(🧱) and I&amp;rsquo;m stuck.&lt;/p&gt;
+&lt;h2 id=&#34;recover-mac-using-apple-configurator&#34;&gt;
+    &lt;a href=&#34;#recover-mac-using-apple-configurator&#34; class=&#34;anchor&#34;&gt;
+        &lt;svg class=&#34;icon&#34; aria-hidden=&#34;true&#34; focusable=&#34;false&#34; height=&#34;16&#34; version=&#34;1.1&#34; viewBox=&#34;0 0 16 16&#34; width=&#34;16&#34;&gt;
+            &lt;path fill-rule=&#34;evenodd&#34;
+                d=&#34;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&#34;&gt;
+            &lt;/path&gt;
+        &lt;/svg&gt;
+    &lt;/a&gt;
+    Recover Mac using Apple Configurator
+&lt;/h2&gt;
+&lt;p&gt;I tried to get advice from Apple Support, wondering if I need to bring it back to a repair store. A very kind and patient guy from Apple customer service advised me to recover my Mac from another Mac using Apple Configure. This gave me hope.&lt;/p&gt;
+&lt;p&gt;There is a detailed guide on Apple website, which tells you what to do in every steps.&lt;/p&gt;
+&lt;p&gt;Apple&amp;rsquo;s guide of &lt;a href=&#34;https://support.apple.com/zh-cn/guide/apple-configurator-mac/apdebea5be51/mac&#34;&gt;how to recover your mac using Apple Configurator&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;But I want complain that the steps Apple told you to get mac into DFU mode is not quite right. I tried many times, still failed to enter DFU mode.&lt;/p&gt;
+&lt;p&gt;you can follow these instructions to enter DFU mode.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.youtube.com/watch?v=UaVgBP4gJsU&#34;&gt;how to enter DFU mode on intel mac&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;After fix the problem of entering into DFU mode, I found another challenge. &lt;strong&gt;the two Mac&amp;rsquo;s OS version must match!&lt;/strong&gt; otherwise the recover process will fail.&lt;/p&gt;
+&lt;p&gt;In my case, my Mac was macOS Ventura, so the other Mac has to be Ventura too. Good job Apple!&lt;/p&gt;
+&lt;p&gt;Finally, after upgrade the other Mac to Ventura, I successfully rescued my Mac. I downgrade macOS to 10.14(Mojave). I will stay on this version for a very long time.&lt;/p&gt;
+&lt;h2 id=&#34;take-away-advices&#34;&gt;
+    &lt;a href=&#34;#take-away-advices&#34; class=&#34;anchor&#34;&gt;
+        &lt;svg class=&#34;icon&#34; aria-hidden=&#34;true&#34; focusable=&#34;false&#34; height=&#34;16&#34; version=&#34;1.1&#34; viewBox=&#34;0 0 16 16&#34; width=&#34;16&#34;&gt;
+            &lt;path fill-rule=&#34;evenodd&#34;
+                d=&#34;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&#34;&gt;
+            &lt;/path&gt;
+        &lt;/svg&gt;
+    &lt;/a&gt;
+    Take-away advices
+&lt;/h2&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; 
+    src=&#34;http://johnlofty.com/rescue_mac/keep_out.jpg&#34; 
+    alt=&#34;keep water out of your fking mac&#34; 
+     
+    width=362 
+    height=&#34;238&#34;  /&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Keep your water out of your fking Mac, unless you have Apple Care.🤣&lt;/li&gt;
+&lt;li&gt;If you want to downgrade you Mac, remember to close &lt;em&gt;Find My&lt;/em&gt; and logout your AppleID.&lt;/li&gt;
+&lt;li&gt;Apple really needs to control its software quality.😠&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;chatgpt-improved-version&#34;&gt;
+    &lt;a href=&#34;#chatgpt-improved-version&#34; class=&#34;anchor&#34;&gt;
+        &lt;svg class=&#34;icon&#34; aria-hidden=&#34;true&#34; focusable=&#34;false&#34; height=&#34;16&#34; version=&#34;1.1&#34; viewBox=&#34;0 0 16 16&#34; width=&#34;16&#34;&gt;
+            &lt;path fill-rule=&#34;evenodd&#34;
+                d=&#34;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&#34;&gt;
+            &lt;/path&gt;
+        &lt;/svg&gt;
+    &lt;/a&gt;
+    ChatGPT improved version
+&lt;/h2&gt;
+&lt;p&gt;so much better than the original version. AI rocks!🚀&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;A few months ago, I accidentally spilled a whole glass of water on my MacBookPro, Despite shutting it down imeediately and leaving it to dry for three days, I was pretty sure that there was still a lot of water inside. As as a result, I took it to a private repair shop instead of an Apple Store because I couldn&amp;rsquo;t afford the hefty price tag of Apple&amp;rsquo;s repair services. An Apple authorized repair shop quoted me a staggering 8000 CNY (about 1161 USD) to replace the entire motherboard and keyboard, which was not worth the investment.&lt;/p&gt;
+&lt;p&gt;The private repair shop fixed my MacBook for 1300 CNY (188USD), but they could not repair the touchID module. They upgraded my Mac from Monterey(12) to Ventura(13) to troubleshoot software issues. Unfortunately, the giant leap between macOS 12 and macOS 13, especially the System Preference, was challenging to get used to. I found myself lost in System Preference menus, and I had to search online for the settings.&lt;/p&gt;
+&lt;p&gt;The Annoying bug on macOS Ventura - &amp;ldquo;Login items added&amp;rdquo; - made my experience even worse. The notification usually appears the first time you install an app or log in. However, in my case, the notification popped up every time I clicked into the Login items in System settings. This bug frustrated me every day, even after upgrade to the latest version of macOS 13.2.1&lt;/p&gt;
+&lt;p&gt;One late night, I decided to downgrade to Monterey. I looked up several methods to downgrade macOS and decided to create a bootable installer. I followed the instructions, including erasing my USB drive, downloading Monterey from the App Store, and making it bootable using commands. However, when I tried to boot from the USB drive, my mac required me to download something from the Internet. After downloading for about ten minutes, I received an error code like -2100f and -1008f, and the process failed repeatedly.&lt;/p&gt;
+&lt;p&gt;After some research, I realized that I made a mistake by forgetting to close &lt;em&gt;Find My&lt;/em&gt; service and not logging out of my iCloud account. Even after erasing my Mac from &lt;em&gt;Find My&lt;/em&gt; on my iPhone, my Mac still refused to boot from USB. Additionally, because I had erased the internal drive, I couldn&amp;rsquo;t boot from the old system on my Mac, and my device was bricked.&lt;/p&gt;
+&lt;p&gt;I sought advice from Apple Support, and they recommended recovering my Mac using another Mac through Apple Configurator. Although there was a detailed guide on Apple&amp;rsquo;s website, I found that the steps to get my Mac into DFU mode were not quite right. After some trial and error, I discovered a way to enter DFU mode on Intel Macs. However, I faced another challenge because the two Macs&amp;rsquo; OS versions had to match, meaning that the other Mac also had to be running Ventura.&lt;/p&gt;
+&lt;p&gt;After upgrading the other Mac to Ventura, I successfully downgrade macOS to 10.14(Mojave), which I will stay on for a very long time.&lt;/p&gt;
+&lt;p&gt;In summary, keep water away from your Mac, unless you have Apple Care. If you want to downgrade your Mac, remember to close &lt;em&gt;Find My&lt;/em&gt; and log out of your Apple ID. Apple must improve its software quality.&lt;/p&gt;
+
+    </description>
+    </item>
+    
     <item>
     <title>Windows10 Dev Environement Setup</title>
     <link>http://johnlofty.com/posts/windows-dev-environments/</link>
@@ -376,7 +530,7 @@ CMD [&amp;#34;./app&amp;#34;]
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;搞定提交。&lt;/p&gt;
 &lt;p&gt;&lt;img loading=&#34;lazy&#34; 
-    src=&#34;//arts/0050-pow-1.png&#34; 
+    src=&#34;http://johnlofty.com/arts/0050-pow-1.png&#34; 
     alt=&#34;暴力法提交结果&#34; 
      
     width=990 

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="theme-color" content="dark">
-    <title>Windows10 Dev Environement Setup | Home</title>
+    <title>Rescue My Macbook Pro 💻 | Home</title>
 
     
 <script type="application/javascript">
@@ -35,10 +35,10 @@ if (!doNotTrack) {
 
     
     <meta property="og:site_name" content="Hugo Tania is Amazing" />
-    <meta property="og:title" content="Windows10 Dev Environement Setup | Home"/>
-    <meta itemprop="name" content="Windows10 Dev Environement Setup | Home" />
-    <meta name="twitter:title" content="Windows10 Dev Environement Setup | Home" />
-    <meta name="application-name" content="Windows10 Dev Environement Setup | Home" /><meta name="twitter:card" content="summary"/>
+    <meta property="og:title" content="Rescue My Macbook Pro 💻 | Home"/>
+    <meta itemprop="name" content="Rescue My Macbook Pro 💻 | Home" />
+    <meta name="twitter:title" content="Rescue My Macbook Pro 💻 | Home" />
+    <meta name="application-name" content="Rescue My Macbook Pro 💻 | Home" /><meta name="twitter:card" content="summary"/>
 
     <meta name="description" content="Hugo is Absurdly Fast!" />
     <meta name="twitter:description" content="Hugo is Absurdly Fast!"/>
@@ -113,15 +113,15 @@ if (!doNotTrack) {
         <header class="article-header">
             <div class="thumb">
                 <div>
-                    <h1>Windows10 Dev Environement Setup</h1>
+                    <h1>Rescue My Macbook Pro 💻</h1>
                     <div class="post-meta">
                         <div>
                             
                             
                               
                             
-                            By Alvin | <time>May 15, 2021</time>
-                            | 1 minutes
+                            By Alvin | <time>March 18, 2023</time>
+                            | 6 minutes
                         </div>
                         <div class="tags">
                             
@@ -133,114 +133,149 @@ if (!doNotTrack) {
     </article>
 
     <div class="article-post">
-    <p>最近因为工作需要开始在Windows10的PC上进行开发工作，但用惯了MacOS的zsh，在Windows下十分不习惯。于是便开始折腾。</p>
-<p>经过一段时间的折腾，从最开始的不适应，慢慢已经逐渐比较顺手了。总结一下我是如何setup windows下面的开发环境。</p>
-<h3 id="命令行环境">
-    <a href="#%e5%91%bd%e4%bb%a4%e8%a1%8c%e7%8e%af%e5%a2%83" class="anchor">
+    <h2 id="background">
+    <a href="#background" class="anchor">
         <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
             <path fill-rule="evenodd"
                 d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
             </path>
         </svg>
     </a>
-    命令行环境
-</h3>
-<hr>
-<h4 id="wsl2--ubuntu">
-    <a href="#wsl2--ubuntu" class="anchor">
+    Background
+</h2>
+<p>I accidentally spilled a WHOLE GLASS of WATER on my MacBookPro about two month ago. Even though I immediately shut it down, and left it on the table to dry out for about 3 days. I&rsquo;m pretty sure there was still a lot of water inside. So I had to take it to a private repair shop to fix it.</p>
+<h2 id="why-didnt-i-take-it-to-the-apple-store">
+    <a href="#why-didnt-i-take-it-to-the-apple-store" class="anchor">
         <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
             <path fill-rule="evenodd"
                 d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
             </path>
         </svg>
     </a>
-    WSL2 + Ubuntu
-</h4>
-<p>因为Windows的命令行实在是比较弱，而且命令都不太习惯，于是果断放弃，转投Linux环境。之前就看到Windows Terminal确实漂亮，于是打算试一试WSL2。</p>
+    Why didn&rsquo;t I take it to the Apple Store?
+</h2>
+<p>Because it cost me a fortune to let Apple repair it. A local Apple authorized repair shop told me the total cost is as high as 8000 CNY (about 1161$), as they would need to replace the entire motherboard and keyboard. Apparently this price is not even worth it.</p>
+<p>At last the private repair shop took me 1300 CNY(188$) and nearly one month to fix it but not the touchID module. And they update my Mac from Monterey(12) to Ventura(13) to troubleshoot software issues.</p>
+<p>You know the giant leap between macOS 12 and macOS 13, especially the System Preference, which is totally different. I can&rsquo;t get used to it. I often found myself lost in System Preference menus, most of the time I need to Google where the settings are.</p>
+<h2 id="the-anonying-bug-on-macos-ventura---login-items-added">
+    <a href="#the-anonying-bug-on-macos-ventura---login-items-added" class="anchor">
+        <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+            <path fill-rule="evenodd"
+                d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+            </path>
+        </svg>
+    </a>
+    The anonying bug on macOS Ventura - &ldquo;Login items added&rdquo;
+</h2>
+<p>Here&rsquo;s an image of &ldquo;Login items added&rdquo; bug.</p>
+<p><img loading="lazy" 
+    src="/rescue_mac/login-item.jpeg" 
+    alt="login-item-bug" 
+     
+    width=800 
+    height="450"  /></p>
+<p>Usually this notification shows at the first time you install an app, or when you login.</p>
+<p>But in my case, <strong>EVERY TIME</strong> I click into the <strong>Login items</strong> in System settings,  macOS pops up new &ldquo;Login items added&rdquo; notification in a row. yeah <strong>EVERY TIME</strong>! Good Job Apple!</p>
+<p><img loading="lazy" 
+    src="/rescue_mac/login-item-2.jpg" 
+    alt="login-item-added" 
+     
+    width=568 
+    height="529"  />
+<a href="https://twitter.com/luciascarlet/status/1590017535910760450">check this on twitter</a></p>
+<p>You can read more about this bug.</p>
+<ul>
+<li><a href="https://www.macrumors.com/2023/02/02/macos-background-items-added-notification-bug/">https://www.macrumors.com/2023/02/02/macos-background-items-added-notification-bug</a></li>
+<li><a href="https://iboysoft.com/news/where-are-login-items-macos-ventura.html">https://iboysoft.com/news/where-are-login-items-macos-ventura.html</a></li>
+</ul>
+<p>This bug tortures me everyday. Even after I upgrade macOS to latest 13.2.1, it&rsquo;s still there.</p>
+<p>Finally, at one late night I decided to downgrade to Monterey.</p>
+<h2 id="downgrade-from-ventura-to-monterey">
+    <a href="#downgrade-from-ventura-to-monterey" class="anchor">
+        <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+            <path fill-rule="evenodd"
+                d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+            </path>
+        </svg>
+    </a>
+    Downgrade from Ventura to Monterey
+</h2>
+<p>I checked several methods to downgrade macOS. I decided to make a bootable installer.</p>
+<p>I followed the instructions.</p>
+<ul>
+<li>erase my USB drive ✅</li>
+<li>download Monterey from App Store ✅</li>
+<li>make it bootable using commands ✅</li>
+<li>restart Mac while holding option key ✅</li>
+<li>erase internal drive ✅</li>
+<li>boot from USB ❌</li>
+</ul>
+<p>When I chose boot from USB drive, my Mac says it need to download something from the Internet. I gave it my WIFI password, then after download for about 10 minutes, It showed some error code like <code>-2100f</code> or <code>-1008f</code>. No matter how many times I tried, It always fail.</p>
+<p>After Google around for some minutes, I realize I made a mistake, I forgot to close <em>Find My</em> service, and I didn&rsquo;t logout my iCloud account.
+However, even I erased Mac from <em>Find My</em> on iPhone, Mac still refused to boot from USB. And because I already erase the internal drive, I can&rsquo;t boot from old system in Mac.</p>
+<p>My Mac is bricked(🧱) and I&rsquo;m stuck.</p>
+<h2 id="recover-mac-using-apple-configurator">
+    <a href="#recover-mac-using-apple-configurator" class="anchor">
+        <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+            <path fill-rule="evenodd"
+                d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+            </path>
+        </svg>
+    </a>
+    Recover Mac using Apple Configurator
+</h2>
+<p>I tried to get advice from Apple Support, wondering if I need to bring it back to a repair store. A very kind and patient guy from Apple customer service advised me to recover my Mac from another Mac using Apple Configure. This gave me hope.</p>
+<p>There is a detailed guide on Apple website, which tells you what to do in every steps.</p>
+<p>Apple&rsquo;s guide of <a href="https://support.apple.com/zh-cn/guide/apple-configurator-mac/apdebea5be51/mac">how to recover your mac using Apple Configurator</a></p>
+<p>But I want complain that the steps Apple told you to get mac into DFU mode is not quite right. I tried many times, still failed to enter DFU mode.</p>
+<p>you can follow these instructions to enter DFU mode.</p>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=UaVgBP4gJsU">how to enter DFU mode on intel mac</a></li>
+</ul>
+<p>After fix the problem of entering into DFU mode, I found another challenge. <strong>the two Mac&rsquo;s OS version must match!</strong> otherwise the recover process will fail.</p>
+<p>In my case, my Mac was macOS Ventura, so the other Mac has to be Ventura too. Good job Apple!</p>
+<p>Finally, after upgrade the other Mac to Ventura, I successfully rescued my Mac. I downgrade macOS to 10.14(Mojave). I will stay on this version for a very long time.</p>
+<h2 id="take-away-advices">
+    <a href="#take-away-advices" class="anchor">
+        <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+            <path fill-rule="evenodd"
+                d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+            </path>
+        </svg>
+    </a>
+    Take-away advices
+</h2>
+<p><img loading="lazy" 
+    src="/rescue_mac/keep_out.jpg" 
+    alt="keep water out of your fking mac" 
+     
+    width=362 
+    height="238"  /></p>
 <ol>
-<li>安装WSL2之前需要完成一些配置，参考官方文档<a href="https://docs.microsoft.com/en-us/windows/wsl/install-win10">这里</a>。</li>
-<li>之后再安装对应的发行版，如Ubuntu20.04。</li>
-<li>安装Windows Terminal。</li>
+<li>Keep your water out of your fking Mac, unless you have Apple Care.🤣</li>
+<li>If you want to downgrade you Mac, remember to close <em>Find My</em> and logout your AppleID.</li>
+<li>Apple really needs to control its software quality.😠</li>
 </ol>
-<p>安装过程本来很顺利，而且，不过据官方文档说，IO速度会比较慢。</p>
-<p>但用了一段时间后发现一个比较蛋疼的问题，WSL2的实例是跑在一个NAT子网里，WSL2可以通过<!-- raw HTML omitted -->/etc/resolve.conf<!-- raw HTML omitted -->拿到host主机的IP，可以直接访问host主机。但反过来就比较麻烦，目前WSL2还没有能很好的解决这个问题，只能手动去配置转发规则，</p>
-<p>总结一下wsl2的优缺点:</p>
-<h4 id="pros">
-    <a href="#pros" class="anchor">
+<h2 id="chatgpt-improved-version">
+    <a href="#chatgpt-improved-version" class="anchor">
         <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
             <path fill-rule="evenodd"
                 d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
             </path>
         </svg>
     </a>
-    Pros
-</h4>
-<ul>
-<li>WSL2可以直接访问windows文件系统</li>
-<li>启动比较快速，性能比较好。</li>
-<li>Window Terminal 比较好看。</li>
-</ul>
-<h4 id="cons">
-    <a href="#cons" class="anchor">
-        <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
-            <path fill-rule="evenodd"
-                d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
-            </path>
-        </svg>
-    </a>
-    Cons:
-</h4>
-<ul>
-<li>不太方便做端口转发，可以手动配置 <a href="https://stackoverflow.com/questions/61002681/connecting-to-wsl2-server-via-local-network">参考这里</a>。</li>
-<li>以及其他一堆奇奇怪怪的兼容性问题</li>
-</ul>
+    ChatGPT improved version
+</h2>
+<p>so much better than the original version. AI rocks!🚀</p>
 <hr>
-<h4 id="virtualbox--ubuntu">
-    <a href="#virtualbox--ubuntu" class="anchor">
-        <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
-            <path fill-rule="evenodd"
-                d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
-            </path>
-        </svg>
-    </a>
-    VirtualBox + Ubuntu
-</h4>
-<p>折腾一段时间wsl2后，发现奇奇怪怪的问题是在太多了，无奈之下，还是选择了用VirtualBox装Ubuntu的方案。毕竟是纯纯的Linux，不会有奇奇怪怪的问题。</p>
-<p>装上Ubuntu 之后，安装openssh-server，开启端口转发之后就可以用xshell连接了。</p>
-<h4 id="pros-1">
-    <a href="#pros-1" class="anchor">
-        <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
-            <path fill-rule="evenodd"
-                d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
-            </path>
-        </svg>
-    </a>
-    Pros
-</h4>
-<ul>
-<li>100% Linux</li>
-<li>端口映射可以很方便的将host端口映射到虚拟机端口。</li>
-<li>可以配置共享文件夹，参考<a href="https://helpdeskgeek.com/virtualization/virtualbox-share-folder-host-guest/">这里</a></li>
-</ul>
-<h4 id="cons-1">
-    <a href="#cons-1" class="anchor">
-        <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
-            <path fill-rule="evenodd"
-                d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
-            </path>
-        </svg>
-    </a>
-    Cons
-</h4>
-<ul>
-<li>需要手动启动VirtualBox，再启动Ubuntu虚拟机。</li>
-<li>性能不如WSL2。</li>
-<li>需要手动配置CPU，内存，硬盘大小（万幸可以随时调整硬盘大小）。</li>
-</ul>
-<hr>
-<p>除了命令行环境，其他工具如IDE，Docker，Git等等，倒是没啥差异。</p>
-<p>有了比较好用的命令行环境后，我似乎没有那么怀念MacOS了。常用的工具软件都有对应的版本，Windows 桌面PC还提供了更好的硬件性能。</p>
-<p>不过在笔记本领域，Apple Sillicon加持的MBP还是香的让人无法抵抗。期待一下今年的all new MacBook Pro。</p>
+<p>A few months ago, I accidentally spilled a whole glass of water on my MacBookPro, Despite shutting it down imeediately and leaving it to dry for three days, I was pretty sure that there was still a lot of water inside. As as a result, I took it to a private repair shop instead of an Apple Store because I couldn&rsquo;t afford the hefty price tag of Apple&rsquo;s repair services. An Apple authorized repair shop quoted me a staggering 8000 CNY (about 1161 USD) to replace the entire motherboard and keyboard, which was not worth the investment.</p>
+<p>The private repair shop fixed my MacBook for 1300 CNY (188USD), but they could not repair the touchID module. They upgraded my Mac from Monterey(12) to Ventura(13) to troubleshoot software issues. Unfortunately, the giant leap between macOS 12 and macOS 13, especially the System Preference, was challenging to get used to. I found myself lost in System Preference menus, and I had to search online for the settings.</p>
+<p>The Annoying bug on macOS Ventura - &ldquo;Login items added&rdquo; - made my experience even worse. The notification usually appears the first time you install an app or log in. However, in my case, the notification popped up every time I clicked into the Login items in System settings. This bug frustrated me every day, even after upgrade to the latest version of macOS 13.2.1</p>
+<p>One late night, I decided to downgrade to Monterey. I looked up several methods to downgrade macOS and decided to create a bootable installer. I followed the instructions, including erasing my USB drive, downloading Monterey from the App Store, and making it bootable using commands. However, when I tried to boot from the USB drive, my mac required me to download something from the Internet. After downloading for about ten minutes, I received an error code like -2100f and -1008f, and the process failed repeatedly.</p>
+<p>After some research, I realized that I made a mistake by forgetting to close <em>Find My</em> service and not logging out of my iCloud account. Even after erasing my Mac from <em>Find My</em> on my iPhone, my Mac still refused to boot from USB. Additionally, because I had erased the internal drive, I couldn&rsquo;t boot from the old system on my Mac, and my device was bricked.</p>
+<p>I sought advice from Apple Support, and they recommended recovering my Mac using another Mac through Apple Configurator. Although there was a detailed guide on Apple&rsquo;s website, I found that the steps to get my Mac into DFU mode were not quite right. After some trial and error, I discovered a way to enter DFU mode on Intel Macs. However, I faced another challenge because the two Macs&rsquo; OS versions had to match, meaning that the other Mac also had to be running Ventura.</p>
+<p>After upgrading the other Mac to Ventura, I successfully downgrade macOS to 10.14(Mojave), which I will stay on for a very long time.</p>
+<p>In summary, keep water away from your Mac, unless you have Apple Care. If you want to downgrade your Mac, remember to close <em>Find My</em> and log out of your Apple ID. Apple must improve its software quality.</p>
 
     </div>
 </div>
@@ -249,17 +284,12 @@ if (!doNotTrack) {
     
     <nav class="flex container suggested">
         
-        <a rel="prev" href="/posts/arts-week03/" title="Previous post (older)">
+        <a rel="prev" href="/posts/windows-dev-environments/" title="Previous post (older)">
             <span>Previous</span>
-            ARTS Week03
+            Windows10 Dev Environement Setup
             </a>
         
         
-        
-        <a rel="next" href="/posts/rescue-macbook-pro/" title="Next post (newer)">
-            <span>Next</span>
-            Rescue My Macbook Pro 💻
-            </a> 
         
     </nav>
     

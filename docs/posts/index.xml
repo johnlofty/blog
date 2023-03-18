@@ -7,7 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <copyright>&amp;copy; 2023 johnlofty.com</copyright>
-    <lastBuildDate>Sat, 15 May 2021 11:21:26 +0800</lastBuildDate><atom:link href="http://johnlofty.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 18 Mar 2023 11:52:57 +0800</lastBuildDate><atom:link href="http://johnlofty.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Rescue My Macbook Pro 💻</title>
+      <link>http://johnlofty.com/posts/rescue-macbook-pro/</link>
+      <pubDate>Sat, 18 Mar 2023 11:52:57 +0800</pubDate>
+      
+      <guid>http://johnlofty.com/posts/rescue-macbook-pro/</guid>
+      <description>Background I accidentally spilled a WHOLE GLASS of WATER on my MacBookPro about two month ago. Even though I immediately shut it down, and left it on the table to dry out for about 3 days. I&amp;rsquo;m pretty sure there was still a lot of water inside. So I had to take it to a private repair shop to fix it.
+Why didn&amp;rsquo;t I take it to the Apple Store?</description>
+    </item>
+    
     <item>
       <title>Windows10 Dev Environement Setup</title>
       <link>http://johnlofty.com/posts/windows-dev-environments/</link>
