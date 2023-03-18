@@ -1,241 +1,27 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-cn">
+    
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="author" content="John Lofty">
-<meta name="description" content="JohnLofty&#39;s Greate Site">
-<title>ARTS Week03 - Think Code Make Loop</title>
-<link rel="stylesheet" type="text/css" href="/css/main.css">
-<link rel="stylesheet" type="text/css" href="/css/comments.css">
-</head>
-<body>
-<header>
-  <div>
-    <h1><a href="http://johnlofty.com/">Think Code Make Loop</a></h1><h2><a href="http://johnlofty.com/">What I cannot create, I do not understand.</a></h2>
-  </div>
-  <nav><a href="/categories/">Categories</a><a href="/categories/arts/">ARTS</a><a href="/about/">About Me</a></nav>
-</header>
-<main>
-  <article>
-    <div class="title">
-  <h1>ARTS Week03</h1>
-  </div>
-<div class="meta">
-  <div>2021-04-11 11:59</div>
-  </div>
-<div class="content">
-  
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="theme-color" content="dark">
+    <title>ARTS Week03 | Home</title>
 
-<h3 id="algorithm">Algorithm</h3>
-
-<h4 id="实现时间复杂度为o-1-的lru">实现时间复杂度为O(1)的LRU</h4>
-
-<p>LRU为Least Recently Used的缩写，意思是最近最少使用，常用来作为一种热数据淘汰机制，使用很广泛。</p>
-
-<p>涉及到的操作有：</p>
-
-<ol>
-<li>新的数据放入队尾</li>
-<li>队列满时，从队头淘汰数据</li>
-<li>放入已经在队列里的数据时，从原先位置取出，放入队尾。</li>
-</ol>
-
-<p>本题的重点是要在O(1)的时间复杂度里完成所有操作，什么数据结构可以在O(1)的时间复杂度里完成上述操作呢？</p>
-
-<p>答案是Double Linked List</p>
-
-<p>选择好合适的数据结构后，剩下的就很简单了。</p>
-
-<pre><code class="language-python">class Node:
-    def __init__(self, k, v):
-        self.k = k
-        self.v = v
-        self.next = None
-        self.prev = None
-
-class LRUCache:
-
-    def __init__(self, capacity: int):
-        self.cap = capacity
-        self.map = {}
-        self.root = root = Node(None, None)
-        root.prev = root.next = root
-
-    def get(self, key: int) -&gt; int:
-        node = self.map.get(key)
-        if not node:
-            return -1
-        else:
-            prev_node = node.prev
-            next_node = node.next
-            next_node.prev = prev_node
-            prev_node.next = next_node
-
-            node.next = self.root
-            node.prev = tail_node = self.root.prev
-            self.root.prev = tail_node.next = node
-            return node.v
-        
-
-    def put(self, key: int, value: int) -&gt; None:
-        node = self.map.get(key)
-        if not node:
-            node = Node(key, value)
-            node.next = self.root
-            node.prev = tail_node = self.root.prev
-            self.root.prev = tail_node.next = node
-            self.map[key] = node
-            if len(self.map) &gt; self.cap:
-                self.pop()
-        else:
-            prev_node = node.prev
-            next_node = node.next
-            next_node.prev = prev_node
-            prev_node.next = next_node
-
-            node.next = self.root
-            node.prev = tail_node = self.root.prev
-            self.root.prev = tail_node.next = node
-            node.v = value
-
-    def pop(self):
-        first_node = self.root.next
-        next_node = first_node.next
-        next_node.prev = self.root
-        self.root.next = next_node
-        self.map.pop(first_node.k)
-
-</code></pre>
-
-<p>需要注意的点是，在操作链表时，别让链表断开。</p>
-
-<p>root节点在初始化时，可以让root节点的next, prev都指向自己，方便后面处理。</p>
-
-<h3 id="review">Review</h3>
-
-<p>Golang Builder Pattern</p>
-
-<p>通过使用不同阶段的Methods，实现对结构体数据的初始化。</p>
-
-<p><a href="https://devcharmander.medium.com/design-patterns-in-golang-the-builder-dac468a71194">Go Builder Pattern</a></p>
-
-<h3 id="tips">Tips</h3>
-
-<h4 id="如何减少docker-image的体积">如何减少docker image的体积</h4>
-
-<p>利用多阶段编译(multi-stage builds，可以有效缩小Docker生成image的大小.
-multi-stage builds将编译环境与运行环境分开。
-如果运行环境选择alpine，生成的镜像体积大约80MB左右。</p>
-
-<pre><code class="language-dockefile">FROM golang:1.16
-WORKDIR /go/src/github.com/alexellis/href-counter/
-RUN go get -d -v golang.org/x/net/html  
-COPY app.go .
-RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o app .
-
-FROM alpine:latest  
-RUN apk --no-cache add ca-certificates
-WORKDIR /root/
-COPY --from=0 /go/src/github.com/alexellis/href-counter/app .
-CMD [&quot;./app&quot;]  
-</code></pre>
-
-<h4 id="reference">Reference:</h4>
-
-<p><a href="https://docs.docker.com/develop/develop-images/multistage-build/">multistage-build</a></p>
-
-<h3 id="share">Share</h3>
-
-<p>测试某个主机的某个端口是否畅通的时候，可以很方便使用nc命令做到。</p>
-
-<pre><code class="language-bash">$ nc -z -v -w 3 baidu.com 80
-Connection to baidu.com 80 port [tcp/http] succeeded!
-</code></pre>
-
-<p>-z 用来扫描端口，并不会发送任何数据</p>
-
-<p>-x 用来使用代理</p>
-</div>
-
-<div id="comments">
-  
-    <script>
-    var id =  3 ;
-
-    if (id)
-    {
-      let url = "https://github.com/johnlofty/blog/issues/".concat(id);
-      let api_url = "https://api.github.com/repos/johnlofty/blog/issues/".concat(id, "/comments");
-      
-      var commentsDiv = document.getElementById("comments");
-  
-      let xhr = new XMLHttpRequest();
-      xhr.responseType = "json";
-      xhr.open("GET", api_url);
-      xhr.setRequestHeader("Accept", "application/vnd.github.v3.html+json");
-      xhr.send();
-  
-      xhr.onload = function()
-      {
-        if (xhr.status != 200)
-        {
-          let errorText = document.createElement("p");
-          errorText.innerHTML = "<i>Comments for this post yet are not opened yet (or you have GitHub scripts disabled).</i>";
-          commentsDiv.appendChild(errorText);
-        }
-        else
-        {
-          let comments = xhr.response;
-  
-          let mainHeader = document.createElement("h2");
-          mainHeader.innerHTML = "Comments: ".concat(comments.length);
-          commentsDiv.appendChild(mainHeader);
-  
-          let issueLink = document.createElement("p");
-          issueLink.innerHTML = "<i>You can leave a comment using this <a href='".concat(url, "'>GitHub issue</a>.</i>");
-          commentsDiv.appendChild(issueLink);
-          
-          comments.forEach(function(comment)
-          {
-              let commentContent = document.createElement("div");
-              commentContent.setAttribute('class', 'gh-comment')
-              commentContent.innerHTML = "".concat(
-                  "<div class='gh-header'>",
-                    "<img src='", comment.user.avatar_url, "' />",
-                    "<div style='margin:auto 0;'>",
-                      "<b><a class='gh-username' href='", comment.user.html_url, "'>", comment.user.login, "</a></b>",
-                      " commented at <em>", new Date(comment.created_at), "</em>",
-                    "</div>",
-                  "</div>",
-                  "<div class='gh-body'>",
-                    comment.body_html,
-                  "</div>"
-              );
-              commentsDiv.appendChild(commentContent);
-          });
-        }
-      };
-  
-      xhr.onerror = function()
-      {
-        let errorText = document.createElement("p");
-        errorText.innerHTML = "<i>Some error loading comments.</i>";
-        commentsDiv.appendChild(errorText);
-      };
-    }
-  </script>
-  
-</div>
-
-  </article>
-</main>
-<footer>
-  <div>
-    <div>&copy; 2021 johnlofty.com</div>
-  </div>
-</footer>
-
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-77660307-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+    
 <script type="application/javascript">
 var doNotTrack = false;
 if (!doNotTrack) {
@@ -246,5 +32,357 @@ if (!doNotTrack) {
 }
 </script>
 <script async src='https://www.google-analytics.com/analytics.js'></script>
-</body>
+
+    
+    <meta property="og:site_name" content="Hugo Tania is Amazing" />
+    <meta property="og:title" content="ARTS Week03 | Home"/>
+    <meta itemprop="name" content="ARTS Week03 | Home" />
+    <meta name="twitter:title" content="ARTS Week03 | Home" />
+    <meta name="application-name" content="ARTS Week03 | Home" /><meta name="twitter:card" content="summary"/>
+
+    <meta name="description" content="Hugo is Absurdly Fast!" />
+    <meta name="twitter:description" content="Hugo is Absurdly Fast!"/>
+    <meta itemprop="description" content="Hugo is Absurdly Fast!"/>
+    <meta property="og:description" content="Hugo is Absurdly Fast!" />
+
+    
+
+
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    
+    <link rel="stylesheet" href="/sass/main.min.ab99ff095f832511e24ffb2fba2b51ad473b2f7e9301d674eba2c6c3a6e8bd81.css">
+    
+</head>
+    
+    <script>
+        (function() {
+            const colorSchemeKey = 'ThemeColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'ThemeColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.userColorScheme = 'dark';
+        } else {
+            document.documentElement.dataset.userColorScheme = 'light';
+        }
+    })();
+</script>
+
+
+    <body class="dark">
+        <nav class="navbar">
+    <div class="container">
+        <div class="flex">
+            <div>
+                <a class="brand" href="/">
+                    
+                    
+                    Home
+                    </a>
+            </div>
+            <div class="flex">
+                
+                <a href="/categories/"><i class='fa fa-road'></i>Category</a>
+                
+                <a href="/about"><i class='fa fa-heart'></i>About</a>
+                
+                
+                    <button id="dark-mode-button">
+                    <svg class="light" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="1em" height="1em" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 36 36"><path fill="#FFD983" d="M30.312.776C32 19 20 32 .776 30.312c8.199 7.717 21.091 7.588 29.107-.429C37.9 21.867 38.03 8.975 30.312.776z"/><path d="M30.705 15.915a1.163 1.163 0 1 0 1.643 1.641a1.163 1.163 0 0 0-1.643-1.641zm-16.022 14.38a1.74 1.74 0 0 0 0 2.465a1.742 1.742 0 1 0 0-2.465zm13.968-2.147a2.904 2.904 0 0 1-4.108 0a2.902 2.902 0 0 1 0-4.107a2.902 2.902 0 0 1 4.108 0a2.902 2.902 0 0 1 0 4.107z" fill="#FFCC4D"/><rect x="0" y="0" width="36" height="36" fill="rgba(0, 0, 0, 0)" /></svg>
+                    <svg class="dark" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="1em" height="1em" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 36 36"><path fill="#FFD983" d="M16 2s0-2 2-2s2 2 2 2v2s0 2-2 2s-2-2-2-2V2zm18 14s2 0 2 2s-2 2-2 2h-2s-2 0-2-2s2-2 2-2h2zM4 16s2 0 2 2s-2 2-2 2H2s-2 0-2-2s2-2 2-2h2zm5.121-8.707s1.414 1.414 0 2.828s-2.828 0-2.828 0L4.878 8.708s-1.414-1.414 0-2.829c1.415-1.414 2.829 0 2.829 0l1.414 1.414zm21 21s1.414 1.414 0 2.828s-2.828 0-2.828 0l-1.414-1.414s-1.414-1.414 0-2.828s2.828 0 2.828 0l1.414 1.414zm-.413-18.172s-1.414 1.414-2.828 0s0-2.828 0-2.828l1.414-1.414s1.414-1.414 2.828 0s0 2.828 0 2.828l-1.414 1.414zm-21 21s-1.414 1.414-2.828 0s0-2.828 0-2.828l1.414-1.414s1.414-1.414 2.828 0s0 2.828 0 2.828l-1.414 1.414zM16 32s0-2 2-2s2 2 2 2v2s0 2-2 2s-2-2-2-2v-2z"/><circle fill="#FFD983" cx="18" cy="18" r="10"/><rect x="0" y="0" width="36" height="36" fill="rgba(0, 0, 0, 0)" /></svg>
+                    </button>
+                
+            </div>
+            </div>
+    </div>
+</nav>
+
+        <main>
+            
+<div class="container">
+    <article>
+        <header class="article-header">
+            <div class="thumb">
+                <div>
+                    <h1>ARTS Week03</h1>
+                    <div class="post-meta">
+                        <div>
+                            
+                            
+                              
+                            
+                            By Alvin | <time>April 11, 2021</time>
+                            | 2 minutes
+                        </div>
+                        <div class="tags">
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </article>
+
+    <div class="article-post">
+    <h3 id="algorithm">
+    <a href="#algorithm" class="anchor">
+        <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+            <path fill-rule="evenodd"
+                d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+            </path>
+        </svg>
+    </a>
+    Algorithm
+</h3>
+<h4 id="实现时间复杂度为o1的lru">
+    <a href="#%e5%ae%9e%e7%8e%b0%e6%97%b6%e9%97%b4%e5%a4%8d%e6%9d%82%e5%ba%a6%e4%b8%bao1%e7%9a%84lru" class="anchor">
+        <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+            <path fill-rule="evenodd"
+                d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+            </path>
+        </svg>
+    </a>
+    实现时间复杂度为O(1)的LRU
+</h4>
+<p>LRU为Least Recently Used的缩写，意思是最近最少使用，常用来作为一种热数据淘汰机制，使用很广泛。</p>
+<p>涉及到的操作有：</p>
+<ol>
+<li>新的数据放入队尾</li>
+<li>队列满时，从队头淘汰数据</li>
+<li>放入已经在队列里的数据时，从原先位置取出，放入队尾。</li>
+</ol>
+<p>本题的重点是要在O(1)的时间复杂度里完成所有操作，什么数据结构可以在O(1)的时间复杂度里完成上述操作呢？</p>
+<p>答案是Double Linked List</p>
+<p>选择好合适的数据结构后，剩下的就很简单了。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Node</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> __init__(self, k, v):
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>k <span style="color:#f92672">=</span> k
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>v <span style="color:#f92672">=</span> v
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>next <span style="color:#f92672">=</span> <span style="color:#66d9ef">None</span>
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>prev <span style="color:#f92672">=</span> <span style="color:#66d9ef">None</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">LRUCache</span>:
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> __init__(self, capacity: int):
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>cap <span style="color:#f92672">=</span> capacity
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>map <span style="color:#f92672">=</span> {}
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>root <span style="color:#f92672">=</span> root <span style="color:#f92672">=</span> Node(<span style="color:#66d9ef">None</span>, <span style="color:#66d9ef">None</span>)
+</span></span><span style="display:flex;"><span>        root<span style="color:#f92672">.</span>prev <span style="color:#f92672">=</span> root<span style="color:#f92672">.</span>next <span style="color:#f92672">=</span> root
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">get</span>(self, key: int) <span style="color:#f92672">-&gt;</span> int:
+</span></span><span style="display:flex;"><span>        node <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>map<span style="color:#f92672">.</span>get(key)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> node:
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">else</span>:
+</span></span><span style="display:flex;"><span>            prev_node <span style="color:#f92672">=</span> node<span style="color:#f92672">.</span>prev
+</span></span><span style="display:flex;"><span>            next_node <span style="color:#f92672">=</span> node<span style="color:#f92672">.</span>next
+</span></span><span style="display:flex;"><span>            next_node<span style="color:#f92672">.</span>prev <span style="color:#f92672">=</span> prev_node
+</span></span><span style="display:flex;"><span>            prev_node<span style="color:#f92672">.</span>next <span style="color:#f92672">=</span> next_node
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            node<span style="color:#f92672">.</span>next <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>root
+</span></span><span style="display:flex;"><span>            node<span style="color:#f92672">.</span>prev <span style="color:#f92672">=</span> tail_node <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>root<span style="color:#f92672">.</span>prev
+</span></span><span style="display:flex;"><span>            self<span style="color:#f92672">.</span>root<span style="color:#f92672">.</span>prev <span style="color:#f92672">=</span> tail_node<span style="color:#f92672">.</span>next <span style="color:#f92672">=</span> node
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> node<span style="color:#f92672">.</span>v
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">put</span>(self, key: int, value: int) <span style="color:#f92672">-&gt;</span> <span style="color:#66d9ef">None</span>:
+</span></span><span style="display:flex;"><span>        node <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>map<span style="color:#f92672">.</span>get(key)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> node:
+</span></span><span style="display:flex;"><span>            node <span style="color:#f92672">=</span> Node(key, value)
+</span></span><span style="display:flex;"><span>            node<span style="color:#f92672">.</span>next <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>root
+</span></span><span style="display:flex;"><span>            node<span style="color:#f92672">.</span>prev <span style="color:#f92672">=</span> tail_node <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>root<span style="color:#f92672">.</span>prev
+</span></span><span style="display:flex;"><span>            self<span style="color:#f92672">.</span>root<span style="color:#f92672">.</span>prev <span style="color:#f92672">=</span> tail_node<span style="color:#f92672">.</span>next <span style="color:#f92672">=</span> node
+</span></span><span style="display:flex;"><span>            self<span style="color:#f92672">.</span>map[key] <span style="color:#f92672">=</span> node
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> len(self<span style="color:#f92672">.</span>map) <span style="color:#f92672">&gt;</span> self<span style="color:#f92672">.</span>cap:
+</span></span><span style="display:flex;"><span>                self<span style="color:#f92672">.</span>pop()
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">else</span>:
+</span></span><span style="display:flex;"><span>            prev_node <span style="color:#f92672">=</span> node<span style="color:#f92672">.</span>prev
+</span></span><span style="display:flex;"><span>            next_node <span style="color:#f92672">=</span> node<span style="color:#f92672">.</span>next
+</span></span><span style="display:flex;"><span>            next_node<span style="color:#f92672">.</span>prev <span style="color:#f92672">=</span> prev_node
+</span></span><span style="display:flex;"><span>            prev_node<span style="color:#f92672">.</span>next <span style="color:#f92672">=</span> next_node
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            node<span style="color:#f92672">.</span>next <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>root
+</span></span><span style="display:flex;"><span>            node<span style="color:#f92672">.</span>prev <span style="color:#f92672">=</span> tail_node <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>root<span style="color:#f92672">.</span>prev
+</span></span><span style="display:flex;"><span>            self<span style="color:#f92672">.</span>root<span style="color:#f92672">.</span>prev <span style="color:#f92672">=</span> tail_node<span style="color:#f92672">.</span>next <span style="color:#f92672">=</span> node
+</span></span><span style="display:flex;"><span>            node<span style="color:#f92672">.</span>v <span style="color:#f92672">=</span> value
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">pop</span>(self):
+</span></span><span style="display:flex;"><span>        first_node <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>root<span style="color:#f92672">.</span>next
+</span></span><span style="display:flex;"><span>        next_node <span style="color:#f92672">=</span> first_node<span style="color:#f92672">.</span>next
+</span></span><span style="display:flex;"><span>        next_node<span style="color:#f92672">.</span>prev <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>root
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>root<span style="color:#f92672">.</span>next <span style="color:#f92672">=</span> next_node
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>map<span style="color:#f92672">.</span>pop(first_node<span style="color:#f92672">.</span>k)
+</span></span></code></pre></div><p>需要注意的点是，在操作链表时，别让链表断开。</p>
+<p>root节点在初始化时，可以让root节点的next, prev都指向自己，方便后面处理。</p>
+<h3 id="review">
+    <a href="#review" class="anchor">
+        <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+            <path fill-rule="evenodd"
+                d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+            </path>
+        </svg>
+    </a>
+    Review
+</h3>
+<p>Golang Builder Pattern</p>
+<p>通过使用不同阶段的Methods，实现对结构体数据的初始化。</p>
+<p><a href="https://devcharmander.medium.com/design-patterns-in-golang-the-builder-dac468a71194">Go Builder Pattern</a></p>
+<h3 id="tips">
+    <a href="#tips" class="anchor">
+        <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+            <path fill-rule="evenodd"
+                d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+            </path>
+        </svg>
+    </a>
+    Tips
+</h3>
+<h4 id="如何减少docker-image的体积">
+    <a href="#%e5%a6%82%e4%bd%95%e5%87%8f%e5%b0%91docker-image%e7%9a%84%e4%bd%93%e7%a7%af" class="anchor">
+        <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+            <path fill-rule="evenodd"
+                d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+            </path>
+        </svg>
+    </a>
+    如何减少docker image的体积
+</h4>
+<p>利用多阶段编译(multi-stage builds，可以有效缩小Docker生成image的大小.
+multi-stage builds将编译环境与运行环境分开。
+如果运行环境选择alpine，生成的镜像体积大约80MB左右。</p>
+<pre tabindex="0"><code class="language-dockefile" data-lang="dockefile">FROM golang:1.16
+WORKDIR /go/src/github.com/alexellis/href-counter/
+RUN go get -d -v golang.org/x/net/html  
+COPY app.go .
+RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o app .
+
+FROM alpine:latest  
+RUN apk --no-cache add ca-certificates
+WORKDIR /root/
+COPY --from=0 /go/src/github.com/alexellis/href-counter/app .
+CMD [&#34;./app&#34;]  
+</code></pre><h4 id="reference">
+    <a href="#reference" class="anchor">
+        <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+            <path fill-rule="evenodd"
+                d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+            </path>
+        </svg>
+    </a>
+    Reference:
+</h4>
+<p><a href="https://docs.docker.com/develop/develop-images/multistage-build/">multistage-build</a></p>
+<h3 id="share">
+    <a href="#share" class="anchor">
+        <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+            <path fill-rule="evenodd"
+                d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+            </path>
+        </svg>
+    </a>
+    Share
+</h3>
+<p>测试某个主机的某个端口是否畅通的时候，可以很方便使用nc命令做到。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ nc -z -v -w <span style="color:#ae81ff">3</span> baidu.com <span style="color:#ae81ff">80</span>
+</span></span><span style="display:flex;"><span>Connection to baidu.com <span style="color:#ae81ff">80</span> port <span style="color:#f92672">[</span>tcp/http<span style="color:#f92672">]</span> succeeded!
+</span></span></code></pre></div><p>-z 用来扫描端口，并不会发送任何数据</p>
+<p>-x 用来使用代理</p>
+
+    </div>
+</div>
+
+<div class="container">
+    
+    <nav class="flex container suggested">
+        
+        <a rel="prev" href="/posts/arts-week02/" title="Previous post (older)">
+            <span>Previous</span>
+            ARTS Week02
+            </a>
+        
+        
+        
+        <a rel="next" href="/posts/windows-dev-environments/" title="Next post (newer)">
+            <span>Next</span>
+            Windows10 Dev Environement Setup
+            </a> 
+        
+    </nav>
+    
+</div>
+ 
+<div class="container">
+    
+    <script src="https://giscus.app/client.js" 
+        data-repo="johnlofty/comments"
+        data-repo-id="R_kgDOJK1uqg"
+        
+        data-category="Blog Comments"
+        data-category-id="DIC_kwDOJK1uqs4CU803"
+        
+        data-mapping="og:title"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-theme="light"
+        crossorigin="anonymous"
+        async
+        >
+</script>
+
+<script>
+    function setGiscusTeheme(theme) {
+        let giscus = document.querySelector('.giscus iframe');
+        if (giscus) {
+            giscus.contentWindow.postMessage(
+                {
+                    giscus: {
+                        setConfig: {
+                            theme: theme
+                        }
+                    }
+                },
+                'https://giscus.app'
+            )
+        }
+    }
+
+    addEventListener('message', event => {
+        if (event.origin !== 'https://giscus.app') return;
+        setGiscusTeheme(document.documentElement.dataset.userColorScheme)
+    });
+
+    window.addEventListener('onColorSchemeChange', (e) => {
+        setGiscusTeheme(e.detail)
+    })
+</script>
+
+</div>
+
+</main>
+
+
+        </main>
+        <footer class="footer flex">
+    <section class="container">
+        <nav class="footer-links">
+            
+        </nav>
+
+        
+    </section>
+    <script defer src="/ts/features.706a523ba43e6d0427c7fdf2b9d05dbd0920d3f12942b453690b495cb2522743.js" 
+    data-enable-footnotes="true"
+    ></script>
+</footer>
+
+    </body>
 </html>

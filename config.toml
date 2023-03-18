@@ -1,6 +1,6 @@
 baseURL = "http://johnlofty.com/"
 languageCode = "zh-cn"
-title = "Alvin's Blog"
+title = "Home"
 theme = "hugo-tania"
 publishDir = "docs"
 Copyright = "&copy; 2023 johnlofty.com"
@@ -9,11 +9,11 @@ paginate = 5
 
 [params]
 subtitle = "What I cannot create, I do not understand."
-description = "JohnLofty's Greate Site"
-author = "John Lofty"
+description = "Alvin's Greate Site"
+author = "Alvin"
 siteName = "Hugo Tania is Amazing"
 siteDesc = "Hugo is Absurdly Fast!"
-titleEmoji = "🥳"
+titleEmoji = ""
 
 [params.comments]
 enabled = true
@@ -40,7 +40,7 @@ weight = -110
 
 [[menu.header]]
 name = "Category"
-post = "<span class='alert'>New!</span>"
+# post = "<span class='alert'>New!</span>"
 pre = "<i class='fa fa-road'></i>"
 url = "/categories/"
 weight = -120

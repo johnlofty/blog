@@ -1,5 +1,5 @@
 ---
-title: "Windows10 开发环境搭建"
+title: "Windows10 Dev Environement Setup"
 date: 2021-05-15T11:21:26+08:00
 ---
 

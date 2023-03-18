@@ -1,19 +1,15 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on Think Code Make Loop</title>
+    <title>Posts on Home</title>
     <link>http://johnlofty.com/posts/</link>
-    <description>Recent content in Posts on Think Code Make Loop</description>
+    <description>Recent content in Posts on Home</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <copyright>&amp;copy; 2021 johnlofty.com</copyright>
-    <lastBuildDate>Sat, 15 May 2021 11:21:26 +0800</lastBuildDate>
-    
-	<atom:link href="http://johnlofty.com/posts/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <copyright>&amp;copy; 2023 johnlofty.com</copyright>
+    <lastBuildDate>Sat, 15 May 2021 11:21:26 +0800</lastBuildDate><atom:link href="http://johnlofty.com/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Windows10 开发环境搭建</title>
+      <title>Windows10 Dev Environement Setup</title>
       <link>http://johnlofty.com/posts/windows-dev-environments/</link>
       <pubDate>Sat, 15 May 2021 11:21:26 +0800</pubDate>
       
@@ -21,12 +17,12 @@
       <description>最近因为工作需要开始在Windows10的PC上进行开发工作，但用惯了MacOS的zsh，在Windows下十分不习惯。于是便开始折腾。
 经过一段时间的折腾，从最开始的不适应，慢慢已经逐渐比较顺手了。总结一下我是如何setup windows下面的开发环境。
 命令行环境 WSL2 + Ubuntu 因为Windows的命令行实在是比较弱，而且命令都不太习惯，于是果断放弃，转投Linux环境。之前就看到Windows Terminal确实漂亮，于是打算试一试WSL2。
- 安装WSL2之前需要完成一些配置，参考官方文档这里。 之后再安装对应的发行版，如Ubuntu20.04。 安装Windows Terminal。  安装过程本来很顺利，而且，不过据官方文档说，IO速度会比较慢。
+安装WSL2之前需要完成一些配置，参考官方文档这里。 之后再安装对应的发行版，如Ubuntu20.04。 安装Windows Terminal。 安装过程本来很顺利，而且，不过据官方文档说，IO速度会比较慢。
 但用了一段时间后发现一个比较蛋疼的问题，WSL2的实例是跑在一个NAT子网里，WSL2可以通过/etc/resolve.conf拿到host主机的IP，可以直接访问host主机。但反过来就比较麻烦，目前WSL2还没有能很好的解决这个问题，只能手动去配置转发规则，
 总结一下wsl2的优缺点:
-Pros  WSL2可以直接访问windows文件系统 启动比较快速，性能比较好。 Window Terminal 比较好看。  Cons:  不太方便做端口转发，可以手动配置 参考这里。 以及其他一堆奇奇怪怪的兼容性问题  VirtualBox + Ubuntu 折腾一段时间wsl2后，发现奇奇怪怪的问题是在太多了，无奈之下，还是选择了用VirtualBox装Ubuntu的方案。毕竟是纯纯的Linux，不会有奇奇怪怪的问题。
+Pros WSL2可以直接访问windows文件系统 启动比较快速，性能比较好。 Window Terminal 比较好看。 Cons: 不太方便做端口转发，可以手动配置 参考这里。 以及其他一堆奇奇怪怪的兼容性问题 VirtualBox + Ubuntu 折腾一段时间wsl2后，发现奇奇怪怪的问题是在太多了，无奈之下，还是选择了用VirtualBox装Ubuntu的方案。毕竟是纯纯的Linux，不会有奇奇怪怪的问题。
 装上Ubuntu 之后，安装openssh-server，开启端口转发之后就可以用xshell连接了。
-Pros  100% Linux 端口映射可以很方便的将host端口映射到虚拟机端口。 可以配置共享文件夹，参考这里  Cons  需要手动启动VirtualBox，再启动Ubuntu虚拟机。 性能不如WSL2。 需要手动配置CPU，内存，硬盘大小（万幸可以随时调整硬盘大小）。  除了命令行环境，其他工具如IDE，Docker，Git等等，倒是没啥差异。
+Pros 100% Linux 端口映射可以很方便的将host端口映射到虚拟机端口。 可以配置共享文件夹，参考这里 Cons 需要手动启动VirtualBox，再启动Ubuntu虚拟机。 性能不如WSL2。 需要手动配置CPU，内存，硬盘大小（万幸可以随时调整硬盘大小）。 除了命令行环境，其他工具如IDE，Docker，Git等等，倒是没啥差异。
 有了比较好用的命令行环境后，我似乎没有那么怀念MacOS了。常用的工具软件都有对应的版本，Windows 桌面PC还提供了更好的硬件性能。
 不过在笔记本领域，Apple Sillicon加持的MBP还是香的让人无法抵抗。期待一下今年的all new MacBook Pro。</description>
     </item>
@@ -39,7 +35,7 @@ Pros  100% Linux 端口映射可以很方便的将host端口映射到虚拟机�
       <guid>http://johnlofty.com/posts/arts-week03/</guid>
       <description>Algorithm 实现时间复杂度为O(1)的LRU LRU为Least Recently Used的缩写，意思是最近最少使用，常用来作为一种热数据淘汰机制，使用很广泛。
 涉及到的操作有：
- 新的数据放入队尾 队列满时，从队头淘汰数据 放入已经在队列里的数据时，从原先位置取出，放入队尾。  本题的重点是要在O(1)的时间复杂度里完成所有操作，什么数据结构可以在O(1)的时间复杂度里完成上述操作呢？
+新的数据放入队尾 队列满时，从队头淘汰数据 放入已经在队列里的数据时，从原先位置取出，放入队尾。 本题的重点是要在O(1)的时间复杂度里完成所有操作，什么数据结构可以在O(1)的时间复杂度里完成上述操作呢？
 答案是Double Linked List
 选择好合适的数据结构后，剩下的就很简单了。
 class Node: def __init__(self, k, v): self.k = k self.v = v self.next = None self.prev = None class LRUCache: def __init__(self, capacity: int): self.cap = capacity self.map = {} self.root = root = Node(None, None) root.prev = root.next = root def get(self, key: int) -&amp;gt; int: node = self.map.get(key) if not node: return -1 else: prev_node = node.</description>
@@ -52,16 +48,17 @@ class Node: def __init__(self, k, v): self.k = k self.v = v self.next = None sel
       
       <guid>http://johnlofty.com/posts/arts-week02/</guid>
       <description>Algorithm 第一题 实现指数运算，pow(x, n) 计算出x的n次方。
- Implement pow(x, n), which calculates x raised to the power n (x^n).
+Implement pow(x, n), which calculates x raised to the power n (x^n).
 Note:
- -100.0 &amp;lt; x &amp;lt; 100.0 n is a 32-bit signed integer, within the range [-2^31, 2^31 - 1]   已知指数运算的几个特性：
+-100.0 &amp;lt; x &amp;lt; 100.0 n is a 32-bit signed integer, within the range [-2^31, 2^31 - 1] 已知指数运算的几个特性：
 1， 任意数的0次方为1；
 2，1的n次方依然为1；
 3，x为0时，若n为0，值为1；若n不为0，则值为0；
 4，当n &amp;lt; 0 时， x^n = 1 / x^-n；
 已知关于指数运算的知识点
- 0的任意次方为0 1的任意次方为1 任意数的0次方1 如果n &amp;lt; 0, pow(x, n).= 1/pow(x, -n)  解法1，暴力破解
-直接遍历n次即可得到，注意处理好边界条件。</description>
+0的任意次方为0 1的任意次方为1 任意数的0次方1 如果n &amp;lt; 0, pow(x, n).= 1/pow(x, -n) 解法1，暴力破解
+直接遍历n次即可得到，注意处理好边界条件。
+func myPow(x float64, n int) float64 { if x == 0.</description>
     </item>
     
     <item>
@@ -70,17 +67,17 @@ Note:
       <pubDate>Sat, 23 May 2020 11:43:03 +0800</pubDate>
       
       <guid>http://johnlofty.com/posts/arts-week01/</guid>
-      <description>Algorithm  Given an array of integers, return indices of the two numbers such that they add up to a specific target.
+      <description>Algorithm Given an array of integers, return indices of the two numbers such that they add up to a specific target.
 You may assume that each input would have exactly one solution, and you may not use the same element twice.
 Example:
 Given nums = [2, 7, 11, 15], target = 9,
 Bacause nums[0] + num[1] = 2 + 7 =.9
 return [0, 1].
- class Solution: def twoSum(self, nums: List[int], target: int) -&amp;gt; List[int]: key_map = {} for idx, num in enumerate(nums): if (target - num) in key_map: return [key_map[target-num], idx] key_map[num] = idx return [-1, -1]  Review learn about how Dict is implemented in Python.</description>
+class Solution: def twoSum(self, nums: List[int], target: int) -&amp;gt; List[int]: key_map = {} for idx, num in enumerate(nums): if (target - num) in key_map: return [key_map[target-num], idx] key_map[num] = idx return [-1, -1] Review learn about how Dict is implemented in Python.</description>
     </item>
     
     <item>
-      <title>博客装修完重新开张了。</title>
+      <title>Opening</title>
       <link>http://johnlofty.com/posts/my-first-post/</link>
       <pubDate>Mon, 23 Mar 2020 22:20:18 +0800</pubDate>
       
