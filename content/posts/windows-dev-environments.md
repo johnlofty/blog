@@ -1,7 +1,6 @@
 ---
 title: "Windows10 开发环境搭建"
 date: 2021-05-15T11:21:26+08:00
-draft: false
 ---
 
 

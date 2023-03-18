@@ -2,8 +2,6 @@
 title: "ARTS Week03"
 date: 2021-04-11T11:59:40+08:00
 categories: ["arts"]
-GHissueID: 3
-draft: false
 ---
 
 ### Algorithm

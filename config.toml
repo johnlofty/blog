@@ -1,40 +1,58 @@
 baseURL = "http://johnlofty.com/"
 languageCode = "zh-cn"
-title = "Think Code Make Loop"
-theme = "simple-style"
+title = "Alvin's Blog"
+theme = "hugo-tania"
 publishDir = "docs"
-Copyright="&copy; 2021 johnlofty.com"
+Copyright = "&copy; 2023 johnlofty.com"
 googleAnalytics = "UA-77660307-1"
+paginate = 5
 
 [params]
-    subtitle = "What I cannot create, I do not understand."
-    description = "JohnLofty's Greate Site"
-    author = "John Lofty"
+subtitle = "What I cannot create, I do not understand."
+description = "JohnLofty's Greate Site"
+author = "John Lofty"
+siteName = "Hugo Tania is Amazing"
+siteDesc = "Hugo is Absurdly Fast!"
+titleEmoji = "🥳"
 
-[menu]
+[params.comments]
+enabled = true
+provider = "giscus"
 
-  [[menu.main]]
-    identifier = "about"
-    name = "About Me"
-    pre = "<i class='fa fa-heart'></i>"
-    url = "/about/"
-    weight = -110
+[params.comments.giscus]
+repo = "johnlofty/comments"
+id = "R_kgDOJK1uqg"
 
-  [[menu.main]]
-    name = "Categories"
-    post = "<span class='alert'>New!</span>"
-    pre = "<i class='fa fa-road'></i>"
-    url = "/categories/"
-    weight = -120
-  
-  [[menu.main]]
-    name = "ARTS"
-    post = "<span class='alert'>New!</span>"
-    pre = "<i class='fa fa-road'></i>"
-    url = "/categories/arts/"
-    weight = -115
+mapping = "og:title"
+reactionsEnabled = 1
+
+[params.comments.giscus.category]
+name = "Blog Comments"
+id = "DIC_kwDOJK1uqs4CU803"
 
 
-[taxonomies]
-  category = "categories"
-  tag = "tags"
+[[menu.header]]
+identifier = "about"
+name = "About"
+pre = "<i class='fa fa-heart'></i>"
+url = "/about"
+weight = -110
+
+[[menu.header]]
+name = "Category"
+post = "<span class='alert'>New!</span>"
+pre = "<i class='fa fa-road'></i>"
+url = "/categories/"
+weight = -120
+
+# [[menu.header]]
+# name = "ARTS"
+# post = "<span class='alert'>New!</span>"
+# pre = "<i class='fa fa-road'></i>"
+# url = "/categories/arts/"
+# weight = -115
+
+
+# [taxonomies]
+# category = "categories"
+# tag = "tags"

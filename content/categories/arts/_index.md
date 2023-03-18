@@ -13,7 +13,6 @@ An typical ARTS challenge usually consist of following four parts
 * T - Tips: Summmerize the skills you've learnt this week.
 * S - Share: Share a technical article with opinions and thoughts, to build your influence.
 
---- 
 
 
 

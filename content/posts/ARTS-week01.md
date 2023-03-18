@@ -2,7 +2,6 @@
 title: "ARTS Week01"
 date: 2020-05-23T11:43:03+08:00
 categories: ["arts"]
-GHissueID: 1
 ---
 
 ### Algorithm
