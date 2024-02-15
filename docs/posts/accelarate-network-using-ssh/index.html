@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="theme-color" content="dark">
-    <title>Windows10 Dev Environement Setup | Home</title>
+    <title>数字游民系列001 - 如何利用树莓派加速网络 | Home</title>
 
     
 <script>
@@ -35,10 +35,10 @@ if (!doNotTrack) {
 
     
     <meta property="og:site_name" content="Hugo Tania is Amazing" />
-    <meta property="og:title" content="Windows10 Dev Environement Setup | Home"/>
-    <meta itemprop="name" content="Windows10 Dev Environement Setup | Home" />
-    <meta name="twitter:title" content="Windows10 Dev Environement Setup | Home" />
-    <meta name="application-name" content="Windows10 Dev Environement Setup | Home" /><meta name="twitter:card" content="summary"/>
+    <meta property="og:title" content="数字游民系列001 - 如何利用树莓派加速网络 | Home"/>
+    <meta itemprop="name" content="数字游民系列001 - 如何利用树莓派加速网络 | Home" />
+    <meta name="twitter:title" content="数字游民系列001 - 如何利用树莓派加速网络 | Home" />
+    <meta name="application-name" content="数字游民系列001 - 如何利用树莓派加速网络 | Home" /><meta name="twitter:card" content="summary"/>
 
     <meta name="description" content="Hugo is Absurdly Fast!" />
     <meta name="twitter:description" content="Hugo is Absurdly Fast!"/>
@@ -113,14 +113,14 @@ if (!doNotTrack) {
         <header class="article-header">
             <div class="thumb">
                 <div>
-                    <h1>Windows10 Dev Environement Setup</h1>
+                    <h1>数字游民系列001 - 如何利用树莓派加速网络</h1>
                     <div class="post-meta">
                         <div>
                             
                             
                               
                             
-                            By Alvin | <time>May 15, 2021</time>
+                            By Alvin | <time>February 06, 2024</time>
                             | 1 minutes
                         </div>
                         <div class="tags">
@@ -133,114 +133,140 @@ if (!doNotTrack) {
     </article>
 
     <div class="article-post">
-    <p>最近因为工作需要开始在Windows10的PC上进行开发工作，但用惯了MacOS的zsh，在Windows下十分不习惯。于是便开始折腾。</p>
-<p>经过一段时间的折腾，从最开始的不适应，慢慢已经逐渐比较顺手了。总结一下我是如何setup windows下面的开发环境。</p>
-<h3 id="命令行环境">
-    <a href="#%e5%91%bd%e4%bb%a4%e8%a1%8c%e7%8e%af%e5%a2%83" class="anchor">
+    <h2 id="起因">
+    <a href="#%e8%b5%b7%e5%9b%a0" class="anchor">
         <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
             <path fill-rule="evenodd"
                 d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
             </path>
         </svg>
     </a>
-    命令行环境
-</h3>
-<hr>
-<h4 id="wsl2--ubuntu">
-    <a href="#wsl2--ubuntu" class="anchor">
+    起因
+</h2>
+<p>开始远程工作一个月了，远程工作的好处是可以自由移动办公场地，刚好也赶上快过年了，得以顺利错峰回到老家准备过年。 至于我是如何开始远程工作的，我回头专门写一篇。</p>
+<p>总之，回家之后发现的第一个痛点是老家的网络在办公的时候很慢，更具体的说，是访问Google比较慢.</p>
+<p>到底有多慢呢？我使用traceroute对比了一下。</p>
+<p><img loading="lazy" 
+    src="/ssh/traceroute01.jpg" 
+    alt="traceroute01" 
+     
+    width=913 
+    height="292"  /></p>
+<p><img loading="lazy" 
+    src="/ssh/traceroute02.jpg" 
+    alt="traceroute02" 
+     
+    width=540 
+    height="518"  /></p>
+<p>（上图是在市里，下图是在老家)</p>
+<p>总结一下测试结果。</p>
+<table>
+<thead>
+<tr>
+<th>Location</th>
+<th>Hops</th>
+<th>Delay</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>我家（电信宽带）</td>
+<td>17</td>
+<td>&lt;187ms</td>
+</tr>
+<tr>
+<td>老家（移动宽带）</td>
+<td>20</td>
+<td>&lt;513ms</td>
+</tr>
+</tbody>
+</table>
+<p>可以看出来，网络变差了很多。从我自己的体验上也是这样，访问网站变慢了，开视频会议的时候等待时间变久了，连测试功能时API的相应时间也肉眼可见的变长了。</p>
+<p>强忍着恶劣的网络工作几天之后，发现工作效率很低，工作时长也变长了，终于是忍不了了，决定解决一下这个问题。</p>
+<h2 id="解决思路">
+    <a href="#%e8%a7%a3%e5%86%b3%e6%80%9d%e8%b7%af" class="anchor">
         <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
             <path fill-rule="evenodd"
                 d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
             </path>
         </svg>
     </a>
-    WSL2 + Ubuntu
-</h4>
-<p>因为Windows的命令行实在是比较弱，而且命令都不太习惯，于是果断放弃，转投Linux环境。之前就看到Windows Terminal确实漂亮，于是打算试一试WSL2。</p>
+    解决思路
+</h2>
+<p>既然在我家的访问速度并不慢，是不是可以让流量先回我家，这样问题不就解决了。</p>
+<p>刚好在回老家前， 我在家里的树莓派上部署了frp客户端，加上阿里云VPS上的frp服务端，可以实现内网穿透。有了内网穿透，我就可以从老家连回树莓派了。</p>
+<p>而且由于树莓派上已经搭建好了代理服务，我其实只需要能连上树莓派上的代理，就能解决问题。但由于家里的宽带并没有公网IP，并不能直接连接，所以还是需要阿里云VPS来作为跳板。</p>
+<p>解决思路如下，流量先经过阿里云VPS回树莓派，再从树莓派出去。黑色箭头是去程流量(outbound traffic)，绿色是回程流量(inbound traffic)。</p>
+<p><img loading="lazy" 
+    src="/ssh/layout.jpg" 
+    alt="layout" 
+     
+    width=676 
+    height="589"  /></p>
+<p>于是，下一步我要解决的问题是，如何将树莓派的代理服务映射到本地。</p>
+<h2 id="ssh-port-forwardingsssh-端口转发">
+    <a href="#ssh-port-forwardingsssh-%e7%ab%af%e5%8f%a3%e8%bd%ac%e5%8f%91" class="anchor">
+        <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+            <path fill-rule="evenodd"
+                d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+            </path>
+        </svg>
+    </a>
+    SSH Port Forwardings(SSH 端口转发)
+</h2>
+<p>SSH端口转发的原理基于SSH的加密通信和端口转发功能。一般分为三种类型：</p>
 <ol>
-<li>安装WSL2之前需要完成一些配置，参考官方文档<a href="https://docs.microsoft.com/en-us/windows/wsl/install-win10">这里</a>。</li>
-<li>之后再安装对应的发行版，如Ubuntu20.04。</li>
-<li>安装Windows Terminal。</li>
+<li>
+<p>本地端口转发（Local Port Forwarding）：将本地主机的某个端口转发到远程主机上的另一个主机和端口。当本地主机上的应用程序尝试连接本地端口时，SSH客户端将数据通过加密通道发送到远程主机，然后由远程主机转发到指定的目标主机和端口。这种类型的端口转发通常用于跳板访问内部网络或绕过防火墙访问受限资源。</p>
+<pre tabindex="0"><code>ssh -L 8080:SOME_IP:80 user@VPS_IP
+</code></pre><p>本地端口8080将被转发到外部服务器的80端口。当你在本地浏览器中访问 <code>http://localhost:8080</code> 时，SSH客户端将会将流量转发到公司内的SSH服务器，然后由SSH服务器转发到外部服务器，最终你可以看到外部服务器的网页。</p>
+</li>
+<li>
+<p>远程端口转发（Remote Port Forwarding）：是将远程主机上的某个端口转发到本地主机或其他机器上的另一个主机和端口。当远程主机上的应用程序尝试连接转发的端口时，数据将通过SSH加密通道发送到本地主机，然后由本地主机转发到指定的目标主机和端口。这种类型的端口转发通常用于内部网络向外部网络提供服务。</p>
+<pre tabindex="0"><code>ssh -R 2222:localhost:22 user@VPS_IP
+</code></pre><p>远程SSH服务器的2222端口将被转发到本地主机的22端口。这意味着，外部机器可以通过连接到外部SSH服务器的2222端口来访问本地主机上的SSH服务。</p>
+</li>
+<li>
+<p>动态端口转发（Dynamic Port Forwarding）：允许用户在本地主机上创建一个SOCKS代理服务器，通过该代理服务器转发所有TCP连接。当本地主机上的应用程序配置为使用该代理服务器时，所有的网络流量都将通过SSH加密通道发送到远程主机，然后由远程主机转发到目标主机和端口。这种类型的端口转发通常用于在不受信任的网络上安全地浏览互联网。</p>
+<pre tabindex="0"><code>ssh -D 1080 user@VPS_IP
+</code></pre><p>在本地主机上启动一个SOCKS代理服务器，监听本地的1080端口</p>
+</li>
 </ol>
-<p>安装过程本来很顺利，而且，不过据官方文档说，IO速度会比较慢。</p>
-<p>但用了一段时间后发现一个比较蛋疼的问题，WSL2的实例是跑在一个NAT子网里，WSL2可以通过<!-- raw HTML omitted -->/etc/resolve.conf<!-- raw HTML omitted -->拿到host主机的IP，可以直接访问host主机。但反过来就比较麻烦，目前WSL2还没有能很好的解决这个问题，只能手动去配置转发规则，</p>
-<p>总结一下wsl2的优缺点:</p>
-<h4 id="pros">
-    <a href="#pros" class="anchor">
+<p>利用SSH端口转发的功能，可以实现流量转发的效果。</p>
+<p>第一步，在树莓派上转发本地代理1080端口到阿里云主机的1081端口。</p>
+<pre tabindex="0"><code>ssh -R 1081:localhost:1080 user@VPS_IP
+</code></pre><p>第二步，在本机转发1080端口到阿里云主机的1081端口</p>
+<pre tabindex="0"><code>ssh -L 1080:localhost:1081 user@VPS_IP
+</code></pre><p>第三步，配置代理走localhost:1080，完成！</p>
+<p>按照上诉步骤配置后，即可实现让流量先回到树莓派再到Google。实现流量转发后，访问Google的速度比之前快多了，基本可以达到之前在家里的访问速度。</p>
+<h2 id="存在的问题">
+    <a href="#%e5%ad%98%e5%9c%a8%e7%9a%84%e9%97%ae%e9%a2%98" class="anchor">
         <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
             <path fill-rule="evenodd"
                 d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
             </path>
         </svg>
     </a>
-    Pros
-</h4>
-<ul>
-<li>WSL2可以直接访问windows文件系统</li>
-<li>启动比较快速，性能比较好。</li>
-<li>Window Terminal 比较好看。</li>
-</ul>
-<h4 id="cons">
-    <a href="#cons" class="anchor">
+    存在的问题
+</h2>
+<p>虽然实现流量转发后，访问Google的速度已经快多了，并且以后不管去哪里办公，只要我还能连回到树莓派，都可以获得不错的办公体验。</p>
+<p>但在特定场景下还是存在一些问题。比如下载文件时，只能跑不到500KB，而之前是可以跑到接近4MB的。我原本以为这是SSH协议实现的限制，后来发现其实是我买的阿里云VPS出口带宽只有3MB。<strong>所以在使用跳板机做端口转发的场景下，跳板机的出口带宽会成为网速瓶颈</strong>。</p>
+<p>能够直连的场景还是尽量直连吧。</p>
+<h2 id="总结">
+    <a href="#%e6%80%bb%e7%bb%93" class="anchor">
         <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
             <path fill-rule="evenodd"
                 d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
             </path>
         </svg>
     </a>
-    Cons:
-</h4>
-<ul>
-<li>不太方便做端口转发，可以手动配置 <a href="https://stackoverflow.com/questions/61002681/connecting-to-wsl2-server-via-local-network">参考这里</a>。</li>
-<li>以及其他一堆奇奇怪怪的兼容性问题</li>
-</ul>
-<hr>
-<h4 id="virtualbox--ubuntu">
-    <a href="#virtualbox--ubuntu" class="anchor">
-        <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
-            <path fill-rule="evenodd"
-                d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
-            </path>
-        </svg>
-    </a>
-    VirtualBox + Ubuntu
-</h4>
-<p>折腾一段时间wsl2后，发现奇奇怪怪的问题是在太多了，无奈之下，还是选择了用VirtualBox装Ubuntu的方案。毕竟是纯纯的Linux，不会有奇奇怪怪的问题。</p>
-<p>装上Ubuntu 之后，安装openssh-server，开启端口转发之后就可以用xshell连接了。</p>
-<h4 id="pros-1">
-    <a href="#pros-1" class="anchor">
-        <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
-            <path fill-rule="evenodd"
-                d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
-            </path>
-        </svg>
-    </a>
-    Pros
-</h4>
-<ul>
-<li>100% Linux</li>
-<li>端口映射可以很方便的将host端口映射到虚拟机端口。</li>
-<li>可以配置共享文件夹，参考<a href="https://helpdeskgeek.com/virtualization/virtualbox-share-folder-host-guest/">这里</a></li>
-</ul>
-<h4 id="cons-1">
-    <a href="#cons-1" class="anchor">
-        <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
-            <path fill-rule="evenodd"
-                d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
-            </path>
-        </svg>
-    </a>
-    Cons
-</h4>
-<ul>
-<li>需要手动启动VirtualBox，再启动Ubuntu虚拟机。</li>
-<li>性能不如WSL2。</li>
-<li>需要手动配置CPU，内存，硬盘大小（万幸可以随时调整硬盘大小）。</li>
-</ul>
-<hr>
-<p>除了命令行环境，其他工具如IDE，Docker，Git等等，倒是没啥差异。</p>
-<p>有了比较好用的命令行环境后，我似乎没有那么怀念MacOS了。常用的工具软件都有对应的版本，Windows 桌面PC还提供了更好的硬件性能。</p>
-<p>不过在笔记本领域，Apple Sillicon加持的MBP还是香的让人无法抵抗。期待一下今年的all new MacBook Pro。</p>
+    总结
+</h2>
+<ol>
+<li>移动宽带出境比电信宽带慢的多，不仅路由路径变长，延迟也会增加。</li>
+<li>使用国内的VPS做跳板机 + SSH，可以轻松实现端口流量转发的功能。</li>
+<li>使用端口转发，跳板机的出口带宽会成为流量瓶颈。</li>
+</ol>
 
     </div>
 </div>
@@ -249,17 +275,12 @@ if (!doNotTrack) {
     
     <nav class="flex container suggested">
         
-        <a rel="prev" href="/posts/arts-week03/" title="Previous post (older)">
+        <a rel="prev" href="/posts/rescue-macbook-pro/" title="Previous post (older)">
             <span>Previous</span>
-            ARTS Week03
+            Rescue My Macbook Pro 💻
             </a>
         
         
-        
-        <a rel="next" href="/posts/rescue-macbook-pro/" title="Next post (newer)">
-            <span>Next</span>
-            Rescue My Macbook Pro 💻
-            </a> 
         
     </nav>
     

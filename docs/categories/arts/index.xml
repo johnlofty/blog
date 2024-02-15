@@ -7,55 +7,28 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <copyright>&amp;copy; 2023 johnlofty.com</copyright>
-    <lastBuildDate>Mon, 22 Feb 2021 22:28:56 +0800</lastBuildDate><atom:link href="http://johnlofty.com/categories/arts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 22 Feb 2021 22:28:56 +0800</lastBuildDate>
+    <atom:link href="http://johnlofty.com/categories/arts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>ARTS Week03</title>
       <link>http://johnlofty.com/posts/arts-week03/</link>
       <pubDate>Sun, 11 Apr 2021 11:59:40 +0800</pubDate>
-      
       <guid>http://johnlofty.com/posts/arts-week03/</guid>
-      <description>Algorithm 实现时间复杂度为O(1)的LRU LRU为Least Recently Used的缩写，意思是最近最少使用，常用来作为一种热数据淘汰机制，使用很广泛。
-涉及到的操作有：
-新的数据放入队尾 队列满时，从队头淘汰数据 放入已经在队列里的数据时，从原先位置取出，放入队尾。 本题的重点是要在O(1)的时间复杂度里完成所有操作，什么数据结构可以在O(1)的时间复杂度里完成上述操作呢？
-答案是Double Linked List
-选择好合适的数据结构后，剩下的就很简单了。
-class Node: def __init__(self, k, v): self.k = k self.v = v self.next = None self.prev = None class LRUCache: def __init__(self, capacity: int): self.cap = capacity self.map = {} self.root = root = Node(None, None) root.prev = root.next = root def get(self, key: int) -&amp;gt; int: node = self.map.get(key) if not node: return -1 else: prev_node = node.</description>
+      <description>Algorithm 实现时间复杂度为O(1)的LRU LRU为Least Recently Used的缩写，意思是最近最少使用，常用来作为一种热数据淘汰机制，使用很广泛。&#xA;涉及到的操作有：&#xA;新的数据放入队尾 队列满时，从队头淘汰数据 放入已经在队列里的数据时，从原先位置取出，放入队尾。 本题的重点是要在O(1)的时间复杂度里完成所有操作，什么数据结构可以在O(1)的时间复杂度里完成上述操作呢？&#xA;答案是Double Linked List&#xA;选择好合适的数据结构后，剩下的就很简单了。&#xA;class Node: def __init__(self, k, v): self.k = k self.v = v self.next = None self.prev = None class LRUCache: def __init__(self, capacity: int): self.cap = capacity self.map = {} self.root = root = Node(None, None) root.prev = root.next = root def get(self, key: int) -&amp;gt; int: node = self.map.get(key) if not node: return -1 else: prev_node = node.</description>
     </item>
-    
     <item>
       <title>ARTS Week02</title>
       <link>http://johnlofty.com/posts/arts-week02/</link>
       <pubDate>Mon, 06 Jul 2020 22:21:48 +0800</pubDate>
-      
       <guid>http://johnlofty.com/posts/arts-week02/</guid>
-      <description>Algorithm 第一题 实现指数运算，pow(x, n) 计算出x的n次方。
-Implement pow(x, n), which calculates x raised to the power n (x^n).
-Note:
--100.0 &amp;lt; x &amp;lt; 100.0 n is a 32-bit signed integer, within the range [-2^31, 2^31 - 1] 已知指数运算的几个特性：
-1， 任意数的0次方为1；
-2，1的n次方依然为1；
-3，x为0时，若n为0，值为1；若n不为0，则值为0；
-4，当n &amp;lt; 0 时， x^n = 1 / x^-n；
-已知关于指数运算的知识点
-0的任意次方为0 1的任意次方为1 任意数的0次方1 如果n &amp;lt; 0, pow(x, n).= 1/pow(x, -n) 解法1，暴力破解
-直接遍历n次即可得到，注意处理好边界条件。
-func myPow(x float64, n int) float64 { if x == 0.</description>
+      <description>Algorithm 第一题 实现指数运算，pow(x, n) 计算出x的n次方。&#xA;Implement pow(x, n), which calculates x raised to the power n (x^n).&#xA;Note:&#xA;-100.0 &amp;lt; x &amp;lt; 100.0 n is a 32-bit signed integer, within the range [-2^31, 2^31 - 1] 已知指数运算的几个特性：&#xA;1， 任意数的0次方为1；&#xA;2，1的n次方依然为1；&#xA;3，x为0时，若n为0，值为1；若n不为0，则值为0；&#xA;4，当n &amp;lt; 0 时， x^n = 1 / x^-n；&#xA;已知关于指数运算的知识点&#xA;0的任意次方为0 1的任意次方为1 任意数的0次方1 如果n &amp;lt; 0, pow(x, n).= 1/pow(x, -n) 解法1，暴力破解&#xA;直接遍历n次即可得到，注意处理好边界条件。&#xA;func myPow(x float64, n int) float64 { if x == 0.</description>
     </item>
-    
     <item>
       <title>ARTS Week01</title>
       <link>http://johnlofty.com/posts/arts-week01/</link>
       <pubDate>Sat, 23 May 2020 11:43:03 +0800</pubDate>
-      
       <guid>http://johnlofty.com/posts/arts-week01/</guid>
-      <description>Algorithm Given an array of integers, return indices of the two numbers such that they add up to a specific target.
-You may assume that each input would have exactly one solution, and you may not use the same element twice.
-Example:
-Given nums = [2, 7, 11, 15], target = 9,
-Bacause nums[0] + num[1] = 2 + 7 =.9
-return [0, 1].
-class Solution: def twoSum(self, nums: List[int], target: int) -&amp;gt; List[int]: key_map = {} for idx, num in enumerate(nums): if (target - num) in key_map: return [key_map[target-num], idx] key_map[num] = idx return [-1, -1] Review learn about how Dict is implemented in Python.</description>
+      <description>Algorithm Given an array of integers, return indices of the two numbers such that they add up to a specific target.&#xA;You may assume that each input would have exactly one solution, and you may not use the same element twice.&#xA;Example:&#xA;Given nums = [2, 7, 11, 15], target = 9,&#xA;Bacause nums[0] + num[1] = 2 + 7 =.9&#xA;return [0, 1].&#xA;class Solution: def twoSum(self, nums: List[int], target: int) -&amp;gt; List[int]: key_map = {} for idx, num in enumerate(nums): if (target - num) in key_map: return [key_map[target-num], idx] key_map[num] = idx return [-1, -1] Review learn about how Dict is implemented in Python.</description>
     </item>
-    
   </channel>
 </rss>
