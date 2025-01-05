@@ -27,6 +27,8 @@
 &lt;p&gt;开始远程工作一个月了，远程工作的好处是可以自由移动办公场地，刚好也赶上快过年了，得以顺利错峰回到老家准备过年。 至于我是如何开始远程工作的，我回头专门写一篇。&lt;/p&gt;
 &lt;p&gt;总之，回家之后发现的第一个痛点是老家的网络在办公的时候很慢，更具体的说，是访问Google比较慢.&lt;/p&gt;
 &lt;p&gt;到底有多慢呢？我使用traceroute对比了一下。&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;!-- raw HTML omitted --&gt;
 &lt;p&gt;&lt;img loading=&#34;lazy&#34; 
     src=&#34;http://johnlofty.com/ssh/traceroute01.jpg&#34; 
     alt=&#34;traceroute01&#34; 
@@ -39,6 +41,8 @@
      
     width=540 
     height=&#34;518&#34;  /&gt;&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;!-- raw HTML omitted --&gt;
 &lt;p&gt;（上图是在市里，下图是在老家)&lt;/p&gt;
 &lt;p&gt;总结一下测试结果。&lt;/p&gt;
 &lt;table&gt;

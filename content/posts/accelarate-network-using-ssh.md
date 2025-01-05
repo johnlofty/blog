@@ -2,6 +2,7 @@
 title: "数字游民系列001 - 如何利用树莓派加速网络"
 date: 2024-02-06T23:00:31+08:00
 draft: false
+categories: ["nomands"]
 ---
 
 ## 起因
@@ -11,9 +12,22 @@ draft: false
 
 到底有多慢呢？我使用traceroute对比了一下。
 
+<img align="left" width="100" height="100" src="ssh/traceroute01">
+
+
+<center>
+
 ![traceroute01](ssh/traceroute01.jpg)
 
+
 ![traceroute02](ssh/traceroute02.jpg) 
+<center>
+
+<div style="display: flex;">
+    <img src="ssh/traceroute01.jpg" alt="Image 1" style="width: 50%;">
+    <img src="ssh/traceroute02.jpg" alt="Image 2" style="width: 50%;">
+</div>
+
 
 （上图是在市里，下图是在老家)
 

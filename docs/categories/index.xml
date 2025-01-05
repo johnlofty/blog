@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <copyright>&amp;copy; 2023 johnlofty.com</copyright>
-    <lastBuildDate>Sun, 11 Apr 2021 11:59:40 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 06 Feb 2024 23:00:31 +0800</lastBuildDate>
     <atom:link href="http://johnlofty.com/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>🚀ARTS Challenge</title>
@@ -15,6 +15,13 @@
       <pubDate>Mon, 22 Feb 2021 22:28:56 +0800</pubDate>
       <guid>http://johnlofty.com/categories/arts/</guid>
       <description>A weekly challenge launched by haoel.&#xA;An typical ARTS challenge usually consist of following four parts&#xA;A - Algorithm: Need to handle at least one leetcode algorithm problem. R - Review: Read and review an English article, to practise English. T - Tips: Summmerize the skills you&amp;rsquo;ve learnt this week. S - Share: Share a technical article with opinions and thoughts, to build your influence. </description>
+    </item>
+    <item>
+      <title>Digital Nomads</title>
+      <link>http://johnlofty.com/categories/nomands/</link>
+      <pubDate>Mon, 22 Feb 2021 22:28:56 +0800</pubDate>
+      <guid>http://johnlofty.com/categories/nomands/</guid>
+      <description></description>
     </item>
   </channel>
 </rss>

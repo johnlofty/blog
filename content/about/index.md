@@ -7,7 +7,7 @@ date: 2021-02-22T22:28:56+08:00
 >
 > -- Richard Feynman
 
-Hey! I'm **Alvin**
+Hey! I'm **Alvin Gao**, I'm a software engineer. 
 
 Welcome to my blog ~ 👋
 

@@ -7,6 +7,20 @@ Copyright = "&copy; 2023 johnlofty.com"
 googleAnalytics = "UA-77660307-1"
 paginate = 5
 
+[markup]
+  [markup.asciidocExt]
+    backend = 'html5'
+    extensions = []
+    failureLevel = 'fatal'
+    noHeaderOrFooter = true
+    preserveTOC = false
+    safeMode = 'unsafe'
+    sectionNumbers = false
+    trace = false
+    verbose = false
+    workingFolderCurrent = false
+    [markup.asciidocExt.attributes]
+
 [params]
 subtitle = "What I cannot create, I do not understand."
 description = "Alvin's Greate Site"
@@ -44,6 +58,11 @@ name = "Category"
 pre = "<i class='fa fa-road'></i>"
 url = "/categories/"
 weight = -120
+
+[[menu.header]]
+name = "Articles"
+url = "/articles"
+weight = -130
 
 # [[menu.header]]
 # name = "ARTS"
